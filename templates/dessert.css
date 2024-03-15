@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.background {
+  height: 100%; /* Ensure the background covers the entire viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.header-icons i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #ffffff; /* White color */
+
+}
+.cart-counter {
+  position: absolute;
+  top: 50%;
+  left: -20px; /* Adjust as needed for positioning */
+  transform: translateY(-50%);
+  background-color: #ffffff; 
+  color: #228B22;
+  padding: 2px 5px; 
+  border-radius: 70%;
+  font-size: 12px; }
+.maincourse-options {
+  margin-top: 30px;
+}
+
+.dessert-options {
+  margin-top: 30px;
+}
+
+.dessert-option {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.dessert-image {
+  flex: 0 0 30%;
+}
+
+.dessert-image img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.dessert-details {
+  flex: 0 0 70%;
+  padding-left: 20px;
+}
+
+.dessert-details h3 {
+  margin-top: 0;
+  font-family: Arial, sans-serif;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff; /* Adjust color to match your design */
+}

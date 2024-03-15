@@ -1,0 +1,75 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .background {
+    background-image: url('1.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-items {
+    margin-top: 30px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .item-icon {
+    flex: 0 0 10%;
+  }
+  
+  .item-icon img {
+    width: 100%;
+  }
+  
+  .item-details {
+    flex: 0 0 90%;
+    padding-left: 20px;
+  }
+  
+  .item-details h3 {
+    margin-top: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .checkout-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #45a049;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff; /* Adjust color to match your design */
+  }
+  
