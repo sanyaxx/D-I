@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="stylesheet" type="text/css" href="styles\settings.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="option" onclick="openTab('profile')">Profile</div>
+        <div class="option" onclick="openTab('history')">History</div>
+        <div class="option" onclick="openTab('switch-account')">Switch Account</div>
+        <div class="option" onclick="logout()">Logout</div>
+    </div>
+    <div class="main-content">
+        <div id="profile" class="tab">
+          
+            <h2>Profile</h2>
+            <p>This is your profile settings.</p>
+        </div>
+        <div id="history" class="tab">
+         
+            <h2>History</h2>
+            <p>This is your history settings.</p>
+        </div>
+        <div id="switch-account" class="tab">
+          
+            <h2>Switch Account</h2>
+            <p>This is your switch account settings.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
