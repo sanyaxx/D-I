@@ -41,12 +41,13 @@ body, html {
   }
   
   button {
-    background-color: #4CAF50;
+    background-color:#3b793d;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
   }
   
   button:hover {
