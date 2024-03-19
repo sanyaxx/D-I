@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('images/1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.background-juices,
+.background-shakes,
+.background-beverages {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-icons i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ffffff; /* White color */
+}
+
+.cart-counter {
+    position: absolute;
+    top: 50%;
+    left: -20px; /* Adjust as needed for positioning */
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    color: #228B22;
+    padding: 2px 5px;
+    border-radius: 70%;
+    font-size: 12px;
+}
+
+.drinks-options {
+    margin-top: 30px;
+}
+
+.drinks-options {
+    margin-top: 30px;
+}
+
+.drinks-option {
+    display: flex;
+    margin-bottom: 20px;
+}
+h3 {
+  margin-top: 40px; /* Increase space above each section heading */
+}
+
+.fresh-juices {
+  background-color: #f9f9f9;
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the section */
+}
+
+
+.shakes {
+  background-color: #f9f9f9; /* Background color for the section */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Rounded corners for the section */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the section */
+}
+
+
+.beverages {
+  background-color: #f9f9f9; /* Background color for the section */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Rounded corners for the section */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the section */
+}
+
+.drinks-options {
+  margin-top: 20px; /* Increase space between section heading and drinks */
+}
+
+
+.drinks-option {
+  margin-bottom: 20px; /* Increase space between drinks options */
+}
+
+
+.drinks-image {
+  flex: 0 0 30%; /* Adjust width of drinks image */
+}
+
+
+.drinks-details {
+  flex: 0 0 70%; /* Adjust width of drinks details */
+}
+
+
+@media (max-width: 768px) {
+  .fresh-juices,
+  .shakes,
+  .beverages {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+.drinks-image {
+    flex: 0 0 30%;
+}
+
+.drinks-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.drinks-details {
+    flex: 0 0 70%;
+    padding-left: 20px;
+}
+
+.drinks-details h3 {
+    margin-top: 0;
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff; /* Adjust color to match your design */
+}
