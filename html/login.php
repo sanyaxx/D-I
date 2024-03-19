@@ -1,6 +1,6 @@
 <?php
 // Include layout.php to establish database connection
-require_once("php/db_connect.php");
+require_once("db_connect.php");
 
 // Retrieve submitted username and password
 $username = $_POST['username'];
