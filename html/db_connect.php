@@ -9,8 +9,8 @@ $database = "food4you"; // Database name
 $connection = new mysqli($host, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  echo "Connected successfully";
+if ($connection->connect_error) { // Change $conn to $connection here
+    die("Connection failed: " . $connection->connect_error); // Change $conn to $connection here
+}
+echo "Connected successfully";
 ?>
