@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food4U - Register</title>
-<link rel="stylesheet" href="styles\register.css">
+<title>Food4U- Register</title>
+<link rel="stylesheet" href="styles/register.css">
 </head>
 <body>
 
 <div class="background">
   <div class="container">
-    <form class="register-form">
+    <form class="register-form" method="POST" action="register.php">
       <h2>Register</h2>
       <div class="input-container">
-        <input type="email" placeholder="Email" required>
+        <input type="email" placeholder="Email" name="email" required>
       </div>
       <div class="input-container">
-        <input type="text" placeholder="Username" required>
+        <input type="text" placeholder="Full Name" name="full_name" required>
       </div>
       <div class="input-container">
-        <input type="password" placeholder="Password" required>
+        <input type="text" placeholder="Username" name="username" required>
       </div>
       <div class="input-container">
-        <input type="password" placeholder="Confirm Password" required>
+        <input type="password" placeholder="Password" name="password" required>
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Confirm Password" name="confirmation" required>
       </div>
       <button type="submit">Register</button>
       <p>Already have an account? <a href="#">Login</a></p>
@@ -34,5 +37,46 @@
   <p>&copy; 2024 Food4U. All Rights Reserved.</p>
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get the form element
+    var registerForm = document.querySelector(".register-form");
+  
+    // Add event listener for form submission
+    registerForm.addEventListener("submit", function(event) {
+      // Prevent default form submission
+      event.preventDefault();
+  
+      // Perform validation checks using JavaScript
+      var email = document.getElementsByName("email")[0].value;
+      var fullName = document.getElementsByName("full_name")[0].value;
+      var username = document.getElementsByName("username")[0].value;
+      var password = document.getElementsByName("password")[0].value;
+      var confirmation = document.getElementsByName("confirmation")[0].value;
+  
+      // Add your validation checks here
+      var isValid = true;
+      if (email === "" || fullName === "" || username === "" || password === "" || confirmation === "") {
+        alert("All fields are required.");
+        isValid = false;
+      }
+      
+      // If password doesn't match confirmation
+      if (password !== confirmation) {
+        alert("Passwords do not match.");
+        isValid = false;
+      }
+  
+      // If all checks pass, submit the form programmatically
+      if (isValid) {
+        registerForm.submit();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
+
+
+
