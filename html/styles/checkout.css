@@ -2,11 +2,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('3.png'); 
-  background-size: cover; 
-  background-position: center; 
+  font-family: 'Roboto', sans-serif;
+  background-image: url('3.png');
+  background-size: cover;
+  background-position: center;
 }
+
 .container {
   max-width: 800px;
   width: 90%;
@@ -28,25 +29,60 @@ body {
   margin-bottom: 20px;
 }
 
+/* Icon for delivery */
+.delivery-details h3::before {
+  content: "\1F69A"; /* Unicode for delivery truck icon */
+  margin-right: 10px;
+}
+
 .payment-method label {
   margin-right: 10px;
-  
+  font-weight: bold;
 }
 
 .payment-method button {
-  display: block; 
-  margin: 10px auto; 
+  display: block;
+  margin: 20px auto;
   padding: 10px 20px;
   background-color: #3b793d;
-  color: #fff;
+  color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
+  box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9); 
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+ 
 }
 
 
+.payment-method button:hover {
+  background-color: #45a049;
+}
 
 .payment-details {
   display: none;
+}
+
+/* Nicer fonts */
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Apply and View Available Vouchers button */
+.discount button,
+.vouchers button {
+  background-color: #6f9b3c;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.discount button:hover,
+.vouchers button:hover {
+  background-color: #7cb342; 
 }
