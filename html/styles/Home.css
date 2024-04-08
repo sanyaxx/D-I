@@ -47,28 +47,27 @@ body, html {
     padding: 2px 5px; 
     border-radius: 70%;
     font-size: 12px; }
-  .options {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
-  
-  .option {
-    flex: 0 0 30%;
-    text-align: center;
-  }
-  
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      flex-wrap: wrap; 
+    }
+    .option {
+      flex: 0 0 calc(23% - 10px); 
+      text-align: center;
+      margin-bottom: 20px; 
+    }
+    
   .option h3 {
     margin-top: 10px;
     font-family: Arial, sans-serif;
   }
-  
   .option-image img {
-    width: 240px;
-    height: 230px;
+    width: 100%;
     border-radius: 5px;
-    margin-bottom: 10px;
-
+    margin-bottom: 15px;
   }
   
 footer {

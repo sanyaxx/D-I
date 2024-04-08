@@ -48,6 +48,21 @@ body {
     padding: 2px 5px; 
     border-radius: 70%;
     font-size: 12px; }
+
+    .back-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999; /* Ensure it stays on top of other elements */
+      font-size: 24px; /* Adjust the icon size as needed */
+      color: #ffffff; /* White color */
+      cursor: pointer;
+    }
+    
+    .back-icon:hover {
+      color: #008CBA; /* Darker shade on hover */
+    }
+    
     
   .maincourse-options {
     margin-top: 30px;

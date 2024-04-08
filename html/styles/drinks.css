@@ -40,19 +40,32 @@ body {
 .header-icons i {
     font-size: 24px;
     margin-right: 10px;
-    color: #ffffff; /* White color */
-}
-
+    color: #ffffff; }
+    
 .cart-counter {
     position: absolute;
     top: 50%;
-    left: -20px; /* Adjust as needed for positioning */
+    left: -20px; 
     transform: translateY(-50%);
     background-color: #ffffff;
     color: #228B22;
     padding: 2px 5px;
     border-radius: 70%;
     font-size: 12px;
+}
+
+.back-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  font-size: 24px; 
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.back-icon:hover {
+  color: #008CBA; /* Darker shade on hover */
 }
 
 .drinks-options {
