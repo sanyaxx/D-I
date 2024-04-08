@@ -1,6 +1,8 @@
 <?php
+
 // Include database connection
 require_once("db_connect.php");
+
 
 // Retrieve submitted username and password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,7 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if there is a matching record
     if ($result->num_rows > 0) {
-        echo "Username taken!";
+        // Set message if username is taken
+        echo '<script type="text/javascript">alert("Username taken!"); history.back();</script>';
+        // Redirect to error page
+        header("Location: error.html");
+        exit();
     } else {
         // Insert the new user into the database
         $query = "INSERT INTO customers (username, password, name, email) VALUES (?, ?, ?, ?)";
@@ -30,9 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bind_param("ssss", $username, $hashed_password, $full_name, $email);
         if ($stmt->execute()) {
-            echo "Account successfully registered! Please login to your account.";
-            // Redirect to login page
-            header("Location: login.html");
+            // Set message if registration is successful
+            echo '<script type="text/javascript">alert("Account successfully registered! Please login to your account."); window.location.href = "login.html";</script>';
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -43,3 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close prepared statement and database connection
 $stmt->close();
 $connection->close();
+

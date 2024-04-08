@@ -2,6 +2,9 @@
 // Include layout.php to establish database connection
 require_once("db_connect.php");
 
+// Start the session
+session_start();
+
 // Retrieve submitted username and password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve submitted username and password
@@ -32,11 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else {
             // Password is incorrect
-            echo "Incorrect password!";
+            echo '<script type="text/javascript">alert("Incorrect password!"); history.back();</script>';
+            exit();
         }
     } else {
         // No matching username found
-        echo "Username not found";
+        echo '<script type="text/javascript">alert("Username not found!"); history.back();</script>';
     }
 }
 
