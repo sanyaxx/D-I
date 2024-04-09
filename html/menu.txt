@@ -541,3 +541,226 @@ DESERT
 
 </body>
 </html>
+
+
+DRINKS
+
+<div class="background">
+  <div class="container">
+   
+    <div class="header-icons">
+      <span class="cart-counter">0</span>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+    <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+    <h2>Drinks and Beverages</h2>
+    
+    <div class="container">
+        <div class="background fresh-juices">
+    
+    <h3>Fresh Juices</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\orange-juice.jpg" alt="Fresh Juice 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Orange Delight</h3>
+          <p>Freshly squeezed orange juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Watermelon-Juice.jpg" alt="Fresh Juice 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Watermelon Bliss</h3>
+          <p>Refreshing watermelon juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\pineapple-juice.jpg" alt="Fresh Juice 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Pineapple Punch</h3>
+          <p>Delicious pineapple juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\mango-juice.jpg" alt="Fresh Juice 4">
+        </div>
+        <div class="drinks-details">
+          <h3>Mango Masti</h3>
+          <p>Healthy and tasty mango juice blend</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\mix-berry.jpg" alt="Fresh Juice 5">
+        </div>
+        <div class="drinks-details">
+          <h3>Berry Blast</h3>
+          <p>Refreshing mixed berry juice</p>
+          <p><b>Price:</b> RM 14</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+     <div class="background shakes">
+   
+    <h3>Shakes</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\chocolate-milkshake.jpg" alt="Shake 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Chocolate Shake</h3>
+          <p>Rich and creamy chocolate shake</p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Vanilla-Shake.jpg" alt="Shake 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Vanilla Dream</h3>
+          <p>Classic vanilla shake</p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\strawberry-milkshake.jpg" alt="Shake 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Strawberry Sensation</h3>
+          <p>Delicious strawberry shake</p>
+          <p><b>Price:</b> RM 17</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\oreo-milkshake.jpg" alt="Shake 4">
+        </div>
+        <div class="drinks-details">
+          <h3>Cookies and Cream</h3>
+          <p>Indulgent cookies and cream shake</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="background beverages">
+   
+    <h3>Beverages</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\iced-coffee.jpg" alt="Beverage 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Iced Coffee</h3>
+          <p>Refreshing iced coffee</p>
+          <p><b>Price:</b> RM 11</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Masala-Chai.jpg" alt="Beverage 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Masala chai</h3>
+          <p>Hot and magical tea with sweetness of milk and sugar and a hint of spice</p>
+          <p><b>Price:</b> RM 11</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Cappuccino.jpg" alt="Beverage 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Cappicino</h3>
+          <p>Australian blended fresh coffee Cappicino </p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Iced-tea.jpg" alt="Beverage 5">
+        </div>
+        <div class="drinks-details">
+          <h3>Iced Tea</h3>
+          <p>Classic refreshening iced tea </p>
+          <p><b>Price:</b> RM 9</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  </div>
+  
+</div>
+
+</body>
+</html>

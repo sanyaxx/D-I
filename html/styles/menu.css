@@ -56,7 +56,6 @@ body {
     color: #228B22;
     padding: 2px 5px; 
     border-radius: 70%;
-<<<<<<< Updated upstream:html/styles/appetizer.css
     font-size: 12px; }
 
   .back-icon {
@@ -74,11 +73,6 @@ body {
     }
     
     
-=======
-    font-size: 12px; 
-  }
-
->>>>>>> Stashed changes:html/styles/menu.css
   .appetizer-options {
     margin-top: 30px;
   }
@@ -123,11 +117,7 @@ body {
     right: 0;
     text-align: center;
     color: #fff; /* Adjust color to match your design */
-<<<<<<< Updated upstream:html/styles/appetizer.css
-  }
-=======
   }
 
   
   
->>>>>>> Stashed changes:html/styles/menu.css
