@@ -46,16 +46,13 @@ body {
   padding: 10px 20px;
   background-color: #3b793d;
   color: white;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9); 
+  box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
   font-weight: bold;
   transition: background-color 0.3s ease;
- 
 }
-
 
 .payment-method button:hover {
   background-color: #45a049;
@@ -80,9 +77,52 @@ h2, h3 {
   padding: 5px 10px;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .discount button:hover,
 .vouchers button:hover {
   background-color: #7cb342; 
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.back-button button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.back-button button:before {
+  content: "\2190"; /* Unicode for back arrow icon */
+  margin-right: 5px;
+}
+
+.back-button button:hover {
+  color: #666;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+  }
+
+  .payment-method button {
+    width: 100%;
+  }
+
+  .discount button,
+  .vouchers button {
+    width: 100%;
+  }
 }

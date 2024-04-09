@@ -25,12 +25,14 @@ body {
 }
 
 .header-icons {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   display: flex;
   align-items: center;
+  z-index: 999; /* Ensure the icons stay on top of other elements */
 }
+
 
 .header-icons i {
   font-size: 24px;
