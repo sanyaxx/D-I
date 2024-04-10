@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart - Food4U</title>
-<link rel="stylesheet" href="styles\cart.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Food4U</title>
+  <link rel="stylesheet" href="styles\cart.css">
+  <!-- Linking Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
 
-<div class="background">
-  <div class="container">
-    <h2>Cart</h2>
-    <div class="cart-items">
-      <div class="cart-item">
-        <div class="item-icon">
-          <img src="icon1.png" alt="Item Icon">
-        </div>
-        <div class="item-details">
-          <h3>Item 1</h3>
-          <p>Quantity: 2</p>
-          <p><b>Price:</b> RM xx </p>
-        </div>
+<body>
+  <div class="background">
+    <div class="container">
+
+      <div class="header-icons">
+        <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
+        <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
+        <i class="fas fa-cog"></i>
       </div>
-      <div class="cart-item">
-        <div class="item-icon">
-          <img src="icon2.png" alt="Item Icon">
-        </div>
-        <div class="item-details">
-          <h3>Item 2</h3>
-          <p>Quantity: 1</p>
-          <p><b>Price:</b> RM yy </p>
-        </div>
+      <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+
+      <h2>Cart</h2>
+
+      <?php if (count($rows) > 0): ?>
+      <table class="cart-items">
+        <thead>
+            <tr>
+                <th class="item-icon"></th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($rows as $row): ?>
+            <tr class="cart-item">
+                <td class="item-icon">
+                    <img src="images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
+                </td>
+                <td class="item-details"><?= $row['name'] ?></td>
+                <td class="item-details"><?= $row['quantity'] ?></td>
+                <td class="item-details"><?= $row['price'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+      </table>
+      <?php else: ?>
+      <p>Cart Empty</p>
+      <?php endif; ?>
+    
+      <div class="total">
+          <p><b>Total:</b> RM </p>
       </div>
-     
+      <button class="checkout-btn">Checkout</button>
     </div>
-    <div class="total">
-      <p><b>Total:</b> RM zz </p> 
-    </div>
-    <button class="checkout-btn">Checkout</button>
   </div>
-</div>
 
 <footer>
   <p>&copy; 2024 Food4U. All Rights Reserved.</p>
@@ -47,3 +62,29 @@
 
 </body>
 </html>
+
+<script>
+
+  function updateCartCounter() {
+    // Make AJAX request to updateCounter.php
+    fetch('updateCounter.php')
+      .then(response => response.text())
+      .then(totalQuantity => {
+        // Update cart counter
+        document.getElementById('cart-counter').textContent = totalQuantity;
+      })
+      .catch(error => console.error('Error updating cart counter:', error));
+  }
+
+  // Call updateCartCounter function when page loads
+  window.onload = updateCartCounter;
+
+  function goBack() {
+    window.location.href = "Home.html";
+  }
+
+  function goCart() {
+    window.location.href = "displayCart.php";
+  }
+  
+</script>

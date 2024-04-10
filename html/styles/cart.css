@@ -23,6 +23,18 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
+  .cart-counter {
+    position: absolute;
+    top: 50%;
+    left: -20px; /* Adjust as needed for positioning */
+    transform: translateY(-50%);
+    background-color: #ffffff; 
+    color: #228B22;
+    padding: 2px 5px; 
+    border-radius: 70%;
+    font-size: 12px; 
+  }
+
   .cart-items {
     margin-top: 30px;
   }
@@ -34,7 +46,7 @@ body, html {
   }
   
   .item-icon {
-    flex: 0 0 10%;
+    flex: 0 0 20%;
   }
   
   .item-icon img {
@@ -42,7 +54,7 @@ body, html {
   }
   
   .item-details {
-    flex: 0 0 90%;
+    flex: 0 0 80%;
     padding-left: 65px;
     display: flex;
     flex-direction: row;
@@ -86,4 +98,32 @@ body, html {
     right: 0;
     text-align: center;
     color: #fff;
+  }
+
+  .header-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ffffff; /* White color */
+  }
+
+  .back-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999; /* Ensure it stays on top of other elements */
+    font-size: 24px; /* Adjust the icon size as needed */
+    color: #ffffff; /* White color */
+    cursor: pointer;
+  }
+  
+  .back-icon:hover {
+    color: #008CBA; /* Darker shade on hover */
   }

@@ -25,6 +25,9 @@ if ($result->num_rows > 0) {
         $rows[] = $row;
     }
 
+    // Include fetch quantity from cart
+    require_once("fetchCartQty.php");
+
     // Close the database connection
     mysqli_close($connection);
 

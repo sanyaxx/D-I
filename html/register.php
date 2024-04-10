@@ -3,7 +3,6 @@
 // Include database connection
 require_once("db_connect.php");
 
-
 // Retrieve submitted username and password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve submitted username and password

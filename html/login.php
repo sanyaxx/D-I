@@ -2,8 +2,6 @@
 // Include layout.php to establish database connection
 require_once("db_connect.php");
 
-// Start the session
-session_start();
 
 // Retrieve submitted username and password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Start a session and store necessary data (if any)
             session_start();
-            $_SESSION['username'] = $username;
+            $_SESSION['userID'] = $row['userID'];
 
             // Redirect to home page
             header("Location: Home.html");

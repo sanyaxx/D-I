@@ -6,6 +6,13 @@ ini_set('display_errors', 1);
 // Include database connection
 require_once("db_connect.php");
 
+// Check if the user is not logged in
+if (!isset($_SESSION["userID"])) {
+    // Redirect to login page
+    header("Location: login.php");
+    exit; // Ensure script execution stops after redirection
+}
+
 // Prepare and bind the SQL statement with a placeholder for the category
 $sql = "SELECT * FROM items WHERE category=?";
 $stmt = $connection->prepare($sql);
@@ -24,6 +31,9 @@ if ($result->num_rows > 0) {
         // Add the row to the array
         $rows[] = $row;
     }
+
+    // Include fetch quantity from cart
+    require_once("fetchCartQty.php");
 
     // Close the database connection
     mysqli_close($connection);
