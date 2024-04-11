@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart - Food4U</title>
   <link rel="stylesheet" href="styles\cart.css">
+  <link rel="stylesheet" href="styles\navigation.css">
   <!-- Linking Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -15,8 +16,7 @@
 
       <div class="header-icons">
         <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
-        <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
-        <i class="fas fa-cog"></i>
+        <i class="fas fa-cog" id="settings" onclick="goSettings()"></i>
       </div>
       <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
 
@@ -50,9 +50,10 @@
       <?php endif; ?>
     
       <div class="total">
-          <p><b>Total:</b> RM </p>
+          <p><b>Total:</b> RM </span></p> 
+          <!-- <span id="total-price"></span> -->
       </div>
-      <button class="checkout-btn">Checkout</button>
+      <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
     </div>
   </div>
 
@@ -65,26 +66,24 @@
 
 <script>
 
-  function updateCartCounter() {
-    // Make AJAX request to updateCounter.php
-    fetch('updateCounter.php')
-      .then(response => response.text())
-      .then(totalQuantity => {
-        // Update cart counter
-        document.getElementById('cart-counter').textContent = totalQuantity;
-      })
-      .catch(error => console.error('Error updating cart counter:', error));
-  }
+  //function calculateTotal() {
+    //const items = document.querySelectorAll('.cart-item');
+    //let totalPrice = 0;
 
-  // Call updateCartCounter function when page loads
-  window.onload = updateCartCounter;
+    //items.forEach(item => {
+      //const quantity = parseInt(item.querySelector('.item-details.quantity').textContent);
+      //const price = parseFloat(item.querySelector('.item-details.price').textContent.replace('RM ', '')); 
+      //totalPrice += quantity * price;
+    //});
 
-  function goBack() {
-    window.location.href = "Home.html";
-  }
+    //return totalPrice.toFixed(2); 
+  //}
 
-  function goCart() {
-    window.location.href = "displayCart.php";
+  // window.onload = calculateTotal;
+  function goCheckout() {
+    window.location.href = "checkout.html"
   }
-  
+ 
 </script>
+
+<script src="functions.js"></script>

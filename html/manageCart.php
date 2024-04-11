@@ -64,4 +64,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Error: Only POST requests are allowed";
 }
 ?>
-

@@ -2,7 +2,6 @@
 // Include layout.php to establish database connection
 require_once("db_connect.php");
 
-
 // Retrieve submitted username and password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve submitted username and password
@@ -25,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Start a session and store necessary data (if any)
             session_start();
-            $_SESSION['userID'] = $row['userID'];
+            $_SESSION['userID'] = $row['userID'];          
 
             // Redirect to home page
             header("Location: Home.html");
@@ -33,14 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else {
             // Password is incorrect
-            echo '<script type="text/javascript">alert("Incorrect password!"); history.back();</script>';
+            echo '<script type="text/javascript">alert("Incorrect password!"); window.location.href = "login.html";</script>';
             exit();
         }
     } else {
         // No matching username found
-        echo '<script type="text/javascript">alert("Username not found!"); history.back();</script>';
+        echo '<script type="text/javascript">alert("Username not found!"); window.location.href = "login.html";</script>';
+        exit();
     }
 }
 
 // Close database connection
 mysqli_close($connection);
+?>

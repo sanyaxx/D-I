@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Food4U - Home</title>
 <link rel="stylesheet" href="styles\Home.css">
+<link rel="stylesheet" href="styles\navigation.css">
 <!-- Linking Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -13,9 +14,9 @@
 <div class="background">
   <div class="container">
     <div class="header-icons">
-      <span class="cart-counter">0</span>
-      <i class="fas fa-shopping-cart"></i>
-      <i class="fas fa-cog"></i>
+      <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
+      <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
+      <i class="fas fa-cog" id="settings" onclick="goSettings()"></i>
     </div>
 
     <div class="options">
@@ -75,3 +76,5 @@
   }
 
 </script>
+
+<script src="functions.js"></script>
