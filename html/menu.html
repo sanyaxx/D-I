@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?> - Food4U</title>
+<link rel="stylesheet" href="styles\menu.css">
+<!-- Linking Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+<div class="background">
+  <div class="container">
+    
+    <div class="header-icons">
+      <span class="cart-counter" id="cart-counter" style="font-weight: bold;">0</span>
+      <i class="fas fa-shopping-cart" id="shopping-cart"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+    <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>    
+    
+    <h2><?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?></h2>
+
+    <div class="appetizer-options">
+      <!-- Loop through $rows to display appetizer data -->
+      <?php foreach ($rows as $row): ?>
+          <div class="appetizer-option">
+              <div class="appetizer-content" style="display:flex">
+                  <div class="appetizer-image">
+                      <img src="images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
+                  </div>
+                  <div class="appetizer-details">
+                      <h3><?= $row['name'] ?></h3>
+                      <p><?= $row['description'] ?></p>
+                      <p><b>Price:</b> RM <?= $row['price'] ?></p>
+                      <!-- Quantity buttons -->
+                      <div class="quantity">
+                          <p>Quantity</p>
+                          <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+                          <input type="text" value="0" readonly style="display: none;">
+                          <button class="plus" onclick="increment(this)">+</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      <?php endforeach; ?>
+    </div>
+  
+
+</body>
+</html>
+  
+<script>
+
+  function increment(button) {
+    const quantityDiv = button.parentNode;
+    const minusButton = quantityDiv.querySelector('.minus');
+    const input = quantityDiv.querySelector('input[type="text"]');
+    const cartCounter = document.querySelector('.cart-counter');
+    const cartIcon = document.querySelector("#shopping-cart");
+
+    minusButton.style.display = 'inline-block';
+    input.style.display = 'inline-block';
+    input.value = parseInt(input.value) + 1;
+
+    // Increase cart counter
+    cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
+
+    // Trigger animation
+    cartIcon.classList.add('pulse');
+    setTimeout(() => {
+        cartIcon.classList.remove('pulse');
+    }, 1000);
+  }
+
+  function decrement(button) {
+      const quantityDiv = button.parentNode;
+      const input = quantityDiv.querySelector('input[type="text"]');
+      const minusButton = quantityDiv.querySelector('.minus');
+      const cartCounter = document.querySelector('.cart-counter');
+      const cartIcon = document.querySelector("#shopping-cart")
+      
+      if (parseInt(input.value) > 0) {
+        input.value = (parseInt(input.value) - 1);
+
+        // Increase cart counter
+        cartCounter.textContent = parseInt(cartCounter.textContent) - 1;
+
+        // Trigger animation
+        cartIcon.classList.add('pulse');
+        setTimeout(() => {
+            cartIcon.classList.remove('pulse');
+        }, 1000);
+      }
+
+      if (parseInt(input.value) == 0) {
+        minusButton.style.display = 'none';
+        input.style.display = 'none';
+      }
+  }
+</script>

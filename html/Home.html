@@ -23,28 +23,28 @@
         <div class="option-image">
           <img src="images/appetizer.png" alt="Appetizer">
         </div>
-        <button class="button hover">Appetizer</button>
+        <button class="button hover" onclick="appetizer()">Appetizer</button>
       </div>
     
       <div class="option">
         <div class="option-image">
           <img src="images/Maincourse.png" alt="Main Course">
         </div>
-        <button class="button hover">Main Course</button>
+        <button class="button hover" onclick="maincourse()">Main Course</button>
       </div>
     
       <div class="option">
         <div class="option-image">
           <img src="images/Dessert.png" alt="Dessert">
         </div>
-        <button class="button hover">Dessert</button>
+        <button class="button hover" onclick="dessert()">Dessert</button>
       </div>
       
       <div class="option">
         <div class="option-image">
           <img src="images/Drinks.jpg" alt="Drinks">
         </div>
-        <button class="button hover">Drinks</button>
+        <button class="button hover" onclick="drinks()">Drinks</button>
       </div>
     </div>
     
@@ -55,3 +55,23 @@
 
 </body>
 </html>
+
+<script>
+
+  function appetizer() {
+    window.location.href = "appetizer.php";
+  }
+
+  function maincourse() {
+    window.location.href = "maincourse.php";
+  }
+
+  function dessert() {
+    window.location.href = "dessert.php";
+  }
+
+  function drinks() {
+    window.location.href = "drinks.php";
+  }
+
+</script>

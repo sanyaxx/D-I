@@ -48,19 +48,20 @@ body, html {
     color: #228B22;
     padding: 2px 5px; 
     border-radius: 70%;
-    font-size: 12px; }
+    font-size: 12px; 
+  }
 
-    .options {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      flex-wrap: wrap; 
-    }
-    .option {
-      flex: 0 0 calc(23% - 10px); 
-      text-align: center;
-      margin-bottom: 20px; 
-    }
+  .options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap; 
+  }
+  .option {
+    flex: 0 0 calc(23% - 10px); 
+    text-align: center;
+    margin-bottom: 20px; 
+  }
     
   .option h3 {
     margin-top: 10px;
