@@ -33,11 +33,11 @@ function increment(button, itemID) {
         cartIcon.classList.remove('pulse');
     }, 1000);
 
+    // Increase cart counter
+    updateCartCounter;
+
     // Send itemID and quantity to cart.php via AJAX
     updateCartOnServer(itemID, input.value);
-
-    // Increase cart counter
-    updateCartCounter();
 }
 
 
@@ -66,7 +66,7 @@ function decrement(button, itemID) {
     updateCartOnServer(itemID, input.value);
 
     // Decrease cart counter
-    updateCartCounter();
+    updateCartCounter;
 }
 
 

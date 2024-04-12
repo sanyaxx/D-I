@@ -6,8 +6,16 @@ ini_set('display_errors', 1);
 // Include database connection
 require_once("db_connect.php");
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Prepare and bind the SQL statement with a placeholder for the category
-$sql = "SELECT * FROM orders WHERE userID=?";
+$sql = "SELECT MIN(orders.orderID) AS orderID, GROUP_CONCAT(items.name) AS itemNames, SUM(orders.total_price) AS total_price, orders.payment, orders.`date` 
+        FROM orders 
+        INNER JOIN items ON orders.itemID = items.itemID
+        WHERE orders.userID=? 
+        GROUP BY orders.`date`";
+
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("s", $_SESSION['userID']);
 $stmt->execute();
@@ -27,7 +35,7 @@ if ($result->num_rows > 0) {
     // Close the database connection
     mysqli_close($connection);
 
-    // Now, include the HTML content from the appetizer.html file
+    // Now, include the HTML content from the history.html file
     include("history.html");
 
 } else {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order History</title>
+<link rel="stylesheet" href="styles/history.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Order History</h1>
+
+    <div class="previous-orders">
+        <h2>Previous Orders</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Items</th>
+                    <th>Total Price (RM)</th>
+                    <th>Payment</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through previous orders and display each order -->
+                <?php foreach ($rows as $row): ?>
+                <tr>
+                    <td><?php echo $row['orderID']; ?></td>
+                    <td><?php echo $row['itemNames']; ?></td>
+                    <td><?php echo $row['total_price']; ?></td>
+                    <td><?php echo $row['payment']; ?></td>
+                    <td><?php echo $row['date']; ?></td>
+                </tr>
+                <?php endforeach; ?>
+                <!-- Repeat the above row structure for each previous order -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

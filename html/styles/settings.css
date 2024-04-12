@@ -53,3 +53,20 @@ h2 {
 p {
     color: #555;
 }
+
+#tabContent {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tabContent h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#tabContent p {
+    color: #555;
+    line-height: 1.5;
+}
