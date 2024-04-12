@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #353131;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #254636;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar .option {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .option:hover {
+    background-color: #444;
+}
+
+.sidebar .option.active-option {
+    background-color: #444;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+#tabContent {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tabContent h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#tabContent p {
+    color: #555;
+    line-height: 1.5;
+}

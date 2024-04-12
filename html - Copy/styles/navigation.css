@@ -1,0 +1,25 @@
+.header-icons {
+position: absolute;
+top: 20px;
+right: 20px;
+display: flex;
+align-items: center;
+}
+
+.header-icons i {
+font-size: 24px;
+margin-right: 10px;
+color: #ffffff; /* White color */
+
+}
+.cart-counter {
+position: absolute;
+top: 50%;
+left: -20px; /* Adjust as needed for positioning */
+transform: translateY(-50%);
+background-color: #ffffff; 
+color: #228B22;
+padding: 2px 5px; 
+border-radius: 70%;
+font-size: 12px; 
+}

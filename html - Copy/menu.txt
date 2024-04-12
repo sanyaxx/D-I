@@ -1,0 +1,766 @@
+APPETIZERS
+
+
+<!-- <div class="appetizer-options">
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+          <img src="images\hummus-pita.jpg" alt="appetizer 1">
+        </div>
+        <div class="appetizer-details">
+          <h3>Hummus and Pita Bread</h3>
+          <p>Dive into the Mediterranean bliss with our creamy hummus paired perfectly with warm, fluffy pita bread - a taste of the sun-kissed shores.</p>
+          <p><b>Price:</b> RM 25</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+    
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+          <img src="images\mini-quesadillas.jpg" alt="appetizer 2">
+        </div>
+        <div class="appetizer-details">
+          <h3>Mini Quesadillas</h3>
+          <p>Experience a fiesta of flavors with our Mini Quesadillas, where gooey cheese meets zesty peppers in every bite-sized delight.</p>
+          <p><b>Price:</b> RM 35</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+    
+          <img src="images\bruschetta.jpg" alt="appetizer 3">
+        </div>
+        <div class="appetizer-details">
+          <h3>Bruschetta</h3>
+          <p>Elevate your palate with the timeless charm of our Bruschetta, where juicy tomatoes, fragrant basil, and garlic dance on crisp bread, a taste of Italy in every bite.</p>
+          <p><b>Price:</b> RM 26</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+   
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+   
+          <img src="images/mini-meatballs.jpeg" alt="appetizer 4">
+        </div>
+        <div class="appetizer-details">
+          <h3>Mini Meatballs</h3>
+          <p>Indulge in savory bliss with our Mini Meatballs, tender morsels of delight swimming in a sea of rich marinara - a taste that speaks volumes.</p>
+          <p><b>Price:</b> RM 35</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+     
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+          
+          <img src="images/baba-ganoush.jpg" alt="appetizer 5">
+        </div>
+        <div class="appetizer-details">
+          <h3>Baba Ganoush</h3>
+          <p>Savor the exotic allure of our Baba Ganoush, where smoky eggplant meets creamy tahini, a tantalizing journey to the heart of the Middle East.</p>
+          <p><b>Price:</b> RM 30</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+        
+          <img src="images/pani-puri.webp" alt="appetizer 6">
+        </div>
+        <div class="appetizer-details">
+          <h3>Pani Puri</h3>
+          <p>Dive into the burst of flavors with our Pani Puri, where crispy shells embrace a symphony of tangy tamarind water and spicy potato - a street food sensation!</p>
+          <p><b>Price:</b> RM 24</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+         
+          <img src="images/dahi-bhalla.jpg" alt="appetizer 7">
+        </div>
+        <div class="appetizer-details">
+          <h3>Dahi Bhalla</h3>
+          <p>Delight in the creamy indulgence of our Dahi Bhalla, where soft lentil dumplings bathe in cool yogurt and zesty chutneys - a taste of tradition with every spoonful.</p>
+          <p><b>Price:</b> RM 25</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+         
+          <img src="images/lentil-soup.jpg" alt="appetizer 8">
+        </div>
+        <div class="appetizer-details">
+          <h3>Lentil Soup</h3>
+          <p>Warm your soul with the comforting embrace of our Lentil Soup, a hearty blend of earthy lentils and aromatic spices - a bowl of nourishment and comfort.</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+         
+          <img src="images/sweet-corn-soup.jpeg" alt="appetizer 9">
+        </div>
+        <div class="appetizer-details">
+          <h3>Sweet Corn Soup</h3>
+          <p>Sip into happiness with our Sweet Corn Soup, where golden kernels dance in a velvety broth, a bowl of sunshine on a rainy day.</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+
+        </div>
+      </div>
+    
+      <div class="appetizer-option">
+        <div class="appetizer-image">
+         
+          <img src="images/stuffed-jalapenos.jpg" alt="appetizer 10">
+        </div>
+        <div class="appetizer-details">
+          <h3>Stuffed Jalapenos</h3>
+          <p>Tasty stuffed jalapenos that'll lift up your mood and cleanse your pallette</p>
+          <p><b>Price:</b> RM 30</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <button class="minus" style="display: none;" onclick="decrement(this)">-</button>
+            <input type="text" value="0" readonly style="display: none;">
+            <button class="plus" onclick="increment(this)">+</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+MAINCOURSE
+<!-- <div class="background">
+  <div class="container">
+   
+    <div class="header-icons">
+      <span class="cart-counter">0</span>
+      <i class="fas fa-shopping-cart"></i>
+      
+      <i class="fas fa-cog"></i>
+    </div>
+    <h2>Main courses</h2>
+    <div class="maincourse-options">
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+        
+          <img src="images/turkey-tenderloin.jpg" alt="maincourse 1">
+        </div>
+        <div class="Maincourse-details">
+          <h3>Herb marinated Turkey Tenderlion</h3>
+          <p>Tender turkey, served with a veggie side and a salad, and some lovely, crusty bread.</p>
+          <p><b>Price:</b>RM 100 </p>
+          <p>Portion: half turkey tenderloin</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          <img src="images/BroccoliMac&Cheese.jpg" alt="maincourse 2">
+        </div>
+        <div class="maincourse-details">
+          <h3>Broccoli Cheddar Mac&Cheese</h3>
+          <p>A creamy, saucy and cheesy pasta with a light and decedant taste of broccoli.</p>
+          <p><b>Price:</b> RM 30</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          <img src="images/Tilapia with lemon.jpeg" alt="maincourse 3">
+        </div>
+        <div class="maincourse-details">
+          <h3>Tilapia with Lemon-Boursin Cream Sauce</h3>
+          <p>Fish filets pan-fried,topped with a quick, creamy Boursin<br> cheese lemon pan sauce , fresh lemon juice, and cream</p>
+          <p><b>Price:</b> RM 110</p>
+          <p>Portion: half Tilapia </p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          <img src="images/8422121_Italian-Braised-Beef-and-Potatoes.jpg" alt="maincourse 4">
+        </div>
+        <div class="maincourse-details">
+          <h3>Italian Braised Beef and Potatoes</h3>
+          <p>Simple, rustic, and comforting beef shank with soft creamy potatoes</p>
+          <p><b>Price:</b> RM 60</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+         
+          <img src="images/Yakamein.jpg" alt="maincourse 5">
+        </div>
+        <div class="maincourse-details">
+          <h3>Yakamein-New Orleans Style Noodle Soup</h3>
+          <p>A delicious, full of flavour noodle soup with rich taste of braised beef and eggs</p>
+          <p><b>Price:</b> RM 45 </p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          
+          <img src="images/Butter-Chicken.jpg" alt="maincourse 6">
+        </div>
+        <div class="maincourse-details">
+          <h3>Butter chicken</h3>
+          <p>Indulge in a symphony of rich flavors with our velvety Butter Chicken,<br> where every bite whispers tales of spice-laden dreams</p>
+          <p><b>Price:</b> 80</p>
+          <p>Portion:1/4 of a chicken served with complimentary naan</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+          
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          
+          <img src="images/Mutton-Yakhni-Pulao-2.jpg" alt="maincourse 7">
+        </div>
+        <div class="maincourse-details">
+          <h3>Mutton Yakhni Pulao</h3>
+          <p>Embark on a culinary journey to the heart of tradition with our fragrant Mutton Pulao, <br>where each grain of rice carries the essence of heritage</p>
+          <p><b>Price:</b> RM 100 </p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+          
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          
+          <img src="images/Hyderabadi-chicken-Biryani.jpg" alt="maincourse 8">
+        </div>
+        <div class="maincourse-details">
+          <h3>Hyderabadi Chicken Biryani</h3>
+          <p>Elevate your senses to new heights with our aromatic Biryani,<br> a majestic blend of spices and succulent meat that reigns supreme.</p>
+          <p><b>Price:</b> RM 80 </p>
+          <p>Portion: Half Chicken </p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+          
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          
+          <img src="images/dalmakhni.jpeg" alt="maincourse 9">
+        </div>
+        <div class="maincourse-details">
+          <h3>Dal Makhni</h3>
+          <p>Savor the warmth of home-cooked goodness with our creamy Dal Makhni,<br>a timeless classic that embraces you like a comforting hug</p>
+          <p><b>Price:</b> RM 60 </p>
+          <p>Portion: Served with complimentary naan</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+
+        </div>
+      </div>
+      <div class="maincourse-option">
+        <div class="maincourse-image">
+          
+          <img src="images/tandoorichicken.jpg"alt="maincourse 10">
+        </div>
+        <div class="maincourse-details">
+          <h3>Tandoori Chicken</h3>
+          <p>Ignite your taste buds with the fiery charm of our Tandoori Chicken,<br> marinated to perfection and kissed by the flames of tradition</p>
+          <p><b>Price:</b> RM 90</p>
+          <p>Portion: Half Chicken served with side dips  </p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+DESERT
+
+<div class="background">
+  <div class="container">
+   
+    <div class="header-icons">
+      <span class="cart-counter">0</span>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+    <h2>Desserts</h2>
+    <div class="dessert-options">
+      <div class="dessert-option">
+        <div class="dessert-image">
+         
+          <img src="images/Chocolate-Lava-Cake.jpeg" alt="Dessert 1">
+        </div>
+        <div class="dessert-details">
+          <h3>Chocolate Lava Cake</h3>
+          <p>Indulgent chocolate lava cake oozing with warm chocolate sauce.</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+        
+          <img src="images/Tiramisu-15.jpg" alt="Dessert 2">
+        </div>
+        <div class="dessert-details">
+          <h3>Tiramisu</h3>
+          <p>Light and fluffy tiramisu with a hint of coffee flavor.</p>
+          <p><b>Price:</b> RM 25</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      
+      <div class="dessert-option">
+        <div class="dessert-image">
+        
+          <img src="images/new-york-style-cheesecake-.jpg" alt="Dessert 3">
+        </div>
+        <div class="dessert-details">
+          <h3>NewYork Cheesecake</h3>
+          <p>Delicious burnt cheesecake with authentic taste and creamy texture</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+   
+      <div class="dessert-option">
+        <div class="dessert-image">
+     
+          <img src="images/blueberry-cheesecake.jpg" alt="Dessert 4">
+        </div>
+        <div class="dessert-details">
+          <h3>Blueberry Cheesecake</h3>
+          <p>Decadent cheesecake topped with fresh berries.</p>
+          <p><b>Price:</b> RM 25</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+       
+          <img src="images/Apple-Pie.jpg" alt="Dessert 5">
+        </div>
+        <div class="dessert-details">
+          <h3>Apple Pie</h3>
+          <p>Classic apple pie served with a scoop of vanilla ice cream.</p>
+          <p><b>Price:</b> RM 30</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+          
+          <img src="images/Rice-Kheer.jpg" alt="Dessert 6">
+        </div>
+        <div class="dessert-details">
+          <h3>Kheer</h3>
+          <p>A creamy milk pudding with the flavours of cardamom and saffron, with almonds and coconut</p>
+          <p><b>Price:</b> RM 28</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+      
+          <img src="images/Suji-Halwa-3.jpg" alt="Dessert 7">
+        </div>
+        <div class="dessert-details">
+          <h3>Halwa</h3>
+          <p>A semolina delicacy roasted in pure ghee served with almonds and pistachos</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+         
+          <img src="images/gulab-jamun.jpg" alt="Dessert 8">
+        </div>
+        <div class="dessert-details">
+          <h3>Gulab jamun</h3>
+          <p>Indian gulab jamun with delicious sugar syrup</p> 
+          <p><b>Price:</b> RM 19</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+         
+          <img src="images/Baklava.jpg" alt="Dessert 9">
+        </div>
+        <div class="dessert-details">
+          <h3>Baklava</h3>
+          <p>Traditional baklava layered with nuts and honey syrup.</p>
+          <p><b>Price:</b> RM 30</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="dessert-option">
+        <div class="dessert-image">
+         
+          <img src="images/Mango-Coconut-Rice.jpg" alt="Dessert 10">
+        </div>
+        <div class="dessert-details">
+          <h3>Mango Sticky Rice</h3>
+          <p>Flavorful mango sticky rice served with coconut milk.</p>
+          <p><b>Price:</b> RM 25</p>
+          <div class="quantity">
+            <p> Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+DRINKS
+
+<div class="background">
+  <div class="container">
+   
+    <div class="header-icons">
+      <span class="cart-counter">0</span>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+    <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+    <h2>Drinks and Beverages</h2>
+    
+    <div class="container">
+        <div class="background fresh-juices">
+    
+    <h3>Fresh Juices</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\orange-juice.jpg" alt="Fresh Juice 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Orange Delight</h3>
+          <p>Freshly squeezed orange juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Watermelon-Juice.jpg" alt="Fresh Juice 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Watermelon Bliss</h3>
+          <p>Refreshing watermelon juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\pineapple-juice.jpg" alt="Fresh Juice 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Pineapple Punch</h3>
+          <p>Delicious pineapple juice</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\mango-juice.jpg" alt="Fresh Juice 4">
+        </div>
+        <div class="drinks-details">
+          <h3>Mango Masti</h3>
+          <p>Healthy and tasty mango juice blend</p>
+          <p><b>Price:</b> RM 12</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\mix-berry.jpg" alt="Fresh Juice 5">
+        </div>
+        <div class="drinks-details">
+          <h3>Berry Blast</h3>
+          <p>Refreshing mixed berry juice</p>
+          <p><b>Price:</b> RM 14</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+     <div class="background shakes">
+   
+    <h3>Shakes</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\chocolate-milkshake.jpg" alt="Shake 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Chocolate Shake</h3>
+          <p>Rich and creamy chocolate shake</p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Vanilla-Shake.jpg" alt="Shake 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Vanilla Dream</h3>
+          <p>Classic vanilla shake</p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\strawberry-milkshake.jpg" alt="Shake 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Strawberry Sensation</h3>
+          <p>Delicious strawberry shake</p>
+          <p><b>Price:</b> RM 17</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\oreo-milkshake.jpg" alt="Shake 4">
+        </div>
+        <div class="drinks-details">
+          <h3>Cookies and Cream</h3>
+          <p>Indulgent cookies and cream shake</p>
+          <p><b>Price:</b> RM 20</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="background beverages">
+   
+    <h3>Beverages</h3>
+    <div class="drinks-options">
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\iced-coffee.jpg" alt="Beverage 1">
+        </div>
+        <div class="drinks-details">
+          <h3>Iced Coffee</h3>
+          <p>Refreshing iced coffee</p>
+          <p><b>Price:</b> RM 11</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Masala-Chai.jpg" alt="Beverage 2">
+        </div>
+        <div class="drinks-details">
+          <h3>Masala chai</h3>
+          <p>Hot and magical tea with sweetness of milk and sugar and a hint of spice</p>
+          <p><b>Price:</b> RM 11</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Cappuccino.jpg" alt="Beverage 3">
+        </div>
+        <div class="drinks-details">
+          <h3>Cappicino</h3>
+          <p>Australian blended fresh coffee Cappicino </p>
+          <p><b>Price:</b> RM 15</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="drinks-option">
+        <div class="drinks-image">
+          <img src="images\Iced-tea.jpg" alt="Beverage 5">
+        </div>
+        <div class="drinks-details">
+          <h3>Iced Tea</h3>
+          <p>Classic refreshening iced tea </p>
+          <p><b>Price:</b> RM 9</p>
+          <div class="quantity">
+            <p>Quantity</p>
+            <input type="number" min="0" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  </div>
+  
+</div>
+
+</body>
+</html>
