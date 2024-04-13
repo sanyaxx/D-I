@@ -17,28 +17,46 @@ quantityInputs.forEach(input => {
     }
 });
 
-function increment(button, itemID) {
+function increment(button, itemID, maxQuantity) {
     const quantityDiv = button.parentNode;
     const minusButton = quantityDiv.querySelector('.minus');
+    const plusButton = quantityDiv.querySelector('.plus');
     const input = quantityDiv.querySelector('input[type="text"]');
     const cartIcon = document.querySelector("#shopping-cart");
+    const errorMessage = quantityDiv.querySelector('.error-message');
 
-    minusButton.style.display = 'inline-block';
-    input.style.display = 'inline-block';
-    input.value = parseInt(input.value) + 1;
+    const currentValue = parseInt(input.value);
 
-    // Trigger animation
-    cartIcon.classList.add('pulse');
-    setTimeout(() => {
-        cartIcon.classList.remove('pulse');
-    }, 1000);
+    if (currentValue < maxQuantity) {
+        minusButton.style.display = 'inline-block';
+        input.style.display = 'inline-block';
 
-    // Increase cart counter
-    updateCartCounter;
+        // Check if max quantity is reached after incrementing
+        if (currentValue >= maxQuantity) {
+            plusButton.style.display = 'none'; // Hide increment button
+            errorMessage.style.display = 'block'; // Display error message
+        } else {
+            // Hide error message if displayed
+            errorMessage.style.display = 'none';  
 
-    // Send itemID and quantity to cart.php via AJAX
-    updateCartOnServer(itemID, input.value);
+            // Increase the current value
+            input.value = currentValue + 1;
+
+            // Trigger animation
+            cartIcon.classList.add('pulse');
+            setTimeout(() => {
+                cartIcon.classList.remove('pulse');
+            }, 1000);
+
+            // Increase cart counter
+            document.querySelector("#cart-counter").value = updateCartCounter;
+
+            // Send itemID and quantity to cart.php via AJAX
+            updateCartOnServer(itemID, input.value);
+            }
+    }
 }
+
 
 
 function decrement(button, itemID) {
@@ -62,11 +80,11 @@ function decrement(button, itemID) {
         input.style.display = 'none';
     }
 
+    // Decrease cart counter
+    document.querySelector("#cart-counter").value = updateCartCounter;
+
     // Send itemID and quantity to cart.php via AJAX
     updateCartOnServer(itemID, input.value);
-
-    // Decrease cart counter
-    updateCartCounter;
 }
 
 

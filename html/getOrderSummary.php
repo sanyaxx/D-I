@@ -7,28 +7,29 @@ ini_set('display_errors', 1);
 require_once("db_connect.php");
 
 // Prepare and bind the SQL statement with a placeholder for the category
-$sql = "SELECT * FROM customers WHERE userID=?";
+$sql =  "SELECT * FROM cart INNER JOIN items ON cart.itemID = items.itemID WHERE cart.userID = ? AND cart.quantity <= items.stock";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("s", $_SESSION['userID']);
+$category = $_SESSION['userID'];
+$stmt->bind_param("s", $category);
 $stmt->execute();
 $result = $stmt->get_result();
 
 // Check if there are rows in the result
 if ($result->num_rows > 0) {
     // Initialize an array to store the rows
-    $profileRows = array();
+    $rows = array();
 
     // Loop through each row of data
-    while($profileRow = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
         // Add the row to the array
-        $profileRows[] = $profileRow;
+        $rows[] = $row;
     }
 
     // Close the database connection
     mysqli_close($connection);
 
     // Now, include the HTML content from the appetizer.html file
-    include("profile.html");
+    include("checkout.html");
 
 } else {
     echo "0 results";

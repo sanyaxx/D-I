@@ -24,12 +24,12 @@ $result = $stmt->get_result();
 // Check if there are rows in the result
 if ($result->num_rows > 0) {
     // Initialize an array to store the rows
-    $rows = array();
+    $historyRows = array();
 
     // Loop through each row of data
-    while($row = $result->fetch_assoc()) {
+    while($historyRow = $result->fetch_assoc()) {
         // Add the row to the array
-        $rows[] = $row;
+        $historyRows[] = $historyRow;
     }
 
     // Close the database connection

@@ -37,12 +37,14 @@
                                 <p><?= $row['description'] ?></p>
                                 <p><b>Price:</b> RM <?= $row['price'] ?></p>
                                 <!-- Quantity buttons -->
+                                <p>Quantity</p>
                                 <div class="quantity">
-                                    <p>Quantity</p>
                                     <button class="minus" style="display: none;" onclick="decrement(this, <?= $row['itemID'] ?>)">-</button>
                                     <input type="text" value="<?= $cartRows[$row['itemID']] ?>" readonly style="display: none;">
-                                    <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>)">+</button>
+                                    <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock'] ?>)">+</button>
+                                    <p class="error-message" style="display: none;">Max quantity reached!</p>
                                 </div>
+                                <p><b>Quantity Available:</b> <?= $row['stock'] ?></p>
                             </div>
                         </div>
                     </div>

@@ -84,7 +84,33 @@ p {
 .profile-options input[type="file"]::-webkit-file-upload-button:hover {
     background-color: #45a049;
 }
+
 .profile-options {
     margin-top: 20px; /* Add margin to the top */
-    margin-bottom: 90px; /* Add margin to the bottom */
+    margin-bottom: 30px; /* Add margin to the bottom */
 }
+
+.profile-text p {
+    margin-bottom: 10px; /* Add margin between paragraphs */
+}
+
+.edit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.save-button {
+    background-color: #28a745;
+}
+
+
+

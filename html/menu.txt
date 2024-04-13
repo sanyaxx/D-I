@@ -764,3 +764,87 @@ DRINKS
 
 </body>
 </html>
+
+
+
+address
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+    defer></script>
+
+<script>
+  function initAutocomplete() {
+    const addressfield = document.querySelector("#address"); // Define addressfield
+
+    // Create the autocomplete object, restricting the search predictions to
+    // addresses in Malaysia
+    autocomplete = new google.maps.places.Autocomplete(addressfield, {
+        componentRestrictions: { country: ["my"] },
+        fields: ["address_components", "geometry", "name", "formatted_address"],
+        types: ["establishment"],
+    });
+
+    // When the user selects an address from the drop-down, fill-up the
+    // address fields in the form.
+    autocomplete.addListener("place_changed", fillInAddress);
+  }
+
+  function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    const place = autocomplete.getPlace();
+    let premise = "";
+    let road = "";
+    let area = "";
+    let city = "";
+    let state = "";
+    let postcode = "";
+
+    console.log("Place Object:", place);
+
+    // Access name
+    premise = place.name;
+
+    // Get each component of the address from the place details,
+    // and then fill-in the corresponding field on the form.
+    // place.address_components are google.maps.GeocoderAddressComponent objects
+    // which are documented at http://goo.gle/3l5i5Mr
+    for (const component of place.address_components) {
+
+        // @ts-ignore remove once typings fixed
+        const componentType = component.types[0];
+
+        switch (componentType) {
+            case "route": {
+                road = component.long_name;
+                break;
+            }
+            case "sublocality_level_1": {
+                area = component.long_name;
+                break;
+            }
+            case "locality": {
+                city = component.long_name;
+                break;
+            }
+            case "administrative_area_level_1": {
+                state = component.long_name;
+                break;
+            }
+            case "postal_code": {
+                postcode = component.long_name;
+                break;
+            }
+        }
+    }
+
+    // Update the form fields with the extracted data
+    document.querySelector("#premise").value = premise;
+    document.querySelector("#area").value = `${road}, ${area}`;
+    document.querySelector("#locality").value = city;
+    document.querySelector("#state").value = state;
+    document.querySelector("#postcode").value = postcode;
+  }
+
+  window.initAutocomplete = initAutocomplete;
+</script>

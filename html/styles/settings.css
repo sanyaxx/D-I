@@ -22,7 +22,7 @@ body {
     margin-bottom: 10px;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: 0.3s;
 }
 
 .sidebar .option:hover {
@@ -69,4 +69,22 @@ p {
 #tabContent p {
     color: #555;
     line-height: 1.5;
+}
+
+.profile-options input[type="file"]::-webkit-file-upload-button {
+    background-color: #3b793d;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
+}
+
+.profile-options input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #45a049;
+}
+.profile-options {
+    margin-top: 20px; /* Add margin to the top */
+    margin-bottom: 90px; /* Add margin to the bottom */
 }

@@ -10,7 +10,7 @@ function goCart() {
 
 // Go to settings page
 function goSettings() {
-    window.location.href = "settings.html";
+    window.location.href = "profile.php";
 }
 
 // Log-out user

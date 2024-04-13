@@ -3,9 +3,9 @@
 require_once("db_connect.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve all items from the user's cart
+    // Retrieve all items from the user's cart where quantity > stock
     $userID = $_SESSION['userID'];
-    $query = "SELECT * FROM cart WHERE userID = ?";
+    $query = "SELECT * FROM cart c JOIN items i ON c.itemID = i.itemID WHERE c.userID = ? AND c.quantity <= i.stock";
     $stmt = $connection->prepare($query);
     $stmt->bind_param("i", $userID);
     $stmt->execute();
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($connection);
 
     // Redirect to a success page or handle the response accordingly
-    // header("Location: checkout_success.php");
+    echo '<script type="text/javascript">alert("Order placed!"); window.location.href = "Home.html";</script>';
     exit();
 }
 ?>

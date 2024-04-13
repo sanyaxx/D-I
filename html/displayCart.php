@@ -6,31 +6,44 @@ ini_set('display_errors', 1);
 // Include database connection
 require_once("db_connect.php");
 
-// Prepare and bind the SQL statement with a placeholder for the category
-$sql =  "SELECT * FROM cart INNER JOIN items ON cart.itemID = items.itemID WHERE cart.userID = ?";
-$stmt = $connection->prepare($sql);
+// Initialize arrays for out of stock and in stock items
+$outOfStockItems = array();
+$inStockItems = array();
+
+// Prepare and bind the SQL statement for out of stock items
+$outOfStockSQL = "SELECT * FROM cart INNER JOIN items ON cart.itemID = items.itemID WHERE cart.userID = ? AND cart.quantity > items.stock";
+$outOfStockStmt = $connection->prepare($outOfStockSQL);
 $category = $_SESSION['userID'];
-$stmt->bind_param("s", $category);
-$stmt->execute();
-$result = $stmt->get_result();
+$outOfStockStmt->bind_param("s", $category);
+$outOfStockStmt->execute();
+$outOfStockResult = $outOfStockStmt->get_result();
 
-// Check if there are rows in the result
-if ($result->num_rows > 0) {
-    // Initialize an array to store the rows
-    $rows = array();
-
-    // Loop through each row of data
-    while($row = $result->fetch_assoc()) {
-        // Add the row to the array
-        $rows[] = $row;
+// Check if there are rows in the result for out of stock items
+if ($outOfStockResult->num_rows > 0) {
+    // Loop through each row of data and add it to the out of stock items array
+    while($outOfStockitem = $outOfStockResult->fetch_assoc()) {
+        $outOfStockitems[] = $outOfStockitem;
     }
-
-    // Close the database connection
-    mysqli_close($connection);
-
-    // Now, include the HTML content from the appetizer.html file
-    include("cart.html");
-
-} else {
-    echo "0 results";
 }
+
+// Prepare and bind the SQL statement for in stock items
+$inStockSQL = "SELECT * FROM cart INNER JOIN items ON cart.itemID = items.itemID WHERE cart.userID = ? AND cart.quantity <= items.stock";
+$inStockStmt = $connection->prepare($inStockSQL);
+$inStockStmt->bind_param("s", $category);
+$inStockStmt->execute();
+$inStockResult = $inStockStmt->get_result();
+
+// Check if there are rows in the result for in stock items
+if ($inStockResult->num_rows > 0) {
+    // Loop through each row of data and add it to the in stock items array
+    while($inStockItem = $inStockResult->fetch_assoc()) {
+        $inStockItems[] = $inStockItem;
+    }
+}
+
+// Close the database connection
+mysqli_close($connection);
+
+// Now, include the HTML content from the cart.html file
+include("cart.html");
+?>

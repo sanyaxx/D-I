@@ -19,12 +19,11 @@
         <i class="fas fa-cog" id="settings" onclick="goSettings()"></i>
       </div>
       <div class="back-button">
-        <i class="fas fa-arrow-left back-icon" onclick="goBack()">Back</i></a>
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i></a>
       </div>
 
+      <?php if (isset($inStockItems) && count($inStockItems) > 0): ?>
       <h2>Cart</h2>
-
-      <?php if (isset($rows) && count($rows) > 0): ?>
           <table class="cart-items">
               <thead>
                   <tr>
@@ -34,29 +33,67 @@
                       <th>Price</th>
                   </tr>
               </thead>
-              <tbody>
-                  <?php foreach ($rows as $row): ?>
+              <tbody>                
+                  <?php 
+                  $total = 0; // Initialize total variable
+
+                  foreach ($inStockItems as $inStockItem):
+                    if ($inStockItem['quantity'] <= $inStockItem['stock']):
+                      $subtotal = $inStockItem['quantity'] * $inStockItem['price']; // Calculate subtotal for each item
+                      $total += $subtotal; // Add subtotal to total
+                  ?>
                       <tr class="cart-item">
                           <td class="item-icon">
-                              <img src="images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
+                              <img src="images/<?= $inStockItem['img'] ?>" alt="<?= $row['name'] ?>">
                           </td>
-                          <td class="item-details"><?= $row['name'] ?></td>
-                          <td class="item-details"><?= $row['quantity'] ?></td>
-                          <td class="item-details"><?= $row['price'] ?></td>
+                          <td class="item-details"><?= $inStockItem['name'] ?></td>
+                          <td class="item-details"><?= $inStockItem['quantity'] ?></td>
+                          <td class="item-details"><?= $inStockItem['price'] ?></td>
                       </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+              </tbody>
+          </table>
+
+        <div class="total">
+          <p><b>Total: RM <?= $total ?></b></span></p> 
+          <!-- <span id="total-price"></span> -->
+        </div>
+
+        <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+      <?php else: ?>
+        <p>Cart Empty!</p>
+      <?php endif; ?>
+
+      <!-- New table for out of stock items -->
+      <?php if (isset($outOfStockitems) && count($outOfStockitems) > 0): ?>
+          <h2>Out of Stock</h2>
+          <table class="out-of-stock-items">
+              <thead>
+                  <tr>
+                      <th class="item-icon"></th>
+                      <th>Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php foreach ($outOfStockitems as $outOfStockitem): ?>
+                      <?php if ($outOfStockitem['quantity'] > $outOfStockitem['stock']): ?>
+                      <tr class="cart-item">
+                        <td class="item-icon">
+                            <img src="images/<?= $outOfStockitem['img'] ?>" alt="<?= $row['name'] ?>">
+                        </td>
+                        <td class="item-details"><?= $outOfStockitem['name'] ?></td>
+                        <td class="item-details"><?= $outOfStockitem['quantity'] ?></td>
+                        <td class="item-details"><?= $outOfStockitem['price'] ?></td>
+                      </tr>
+                      <?php endif; ?>
                   <?php endforeach; ?>
               </tbody>
           </table>
-      <?php else: ?>
-          <p>Cart Empty</p>
       <?php endif; ?>
 
-    
-      <div class="total">
-          <p><b>Total:</b> RM </span></p> 
-          <!-- <span id="total-price"></span> -->
-      </div>
-      <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
     </div>
   </div>
 
@@ -84,9 +121,10 @@
 
   // window.onload = calculateTotal;
   function goCheckout() {
-    window.location.href = "checkout.html"
+    window.location.href = "getOrderSummary.php"
   }
  
 </script>
 
 <script src="functions.js"></script>
+
