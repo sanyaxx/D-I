@@ -11,6 +11,7 @@
 <body>
 
 <div class="container">
+  
   <div class="header-icons">
     <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
     <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
@@ -25,6 +26,13 @@
   <div style="text-align: center;">
     <h2>Checkout</h2>
   </div>
+  <div class="delivery-option">
+    <input type="radio" id="self-collect" name="delivery" value="self-collect">
+    <label for="self-collect">Self Collect</label>
+    <input type="radio" id="delivery" name="delivery" value="delivery">
+    <label for="delivery">Delivery</label>
+  </div>
+  
   <div class="delivery-details">
     <h3>Delivery Address</h3>
     <div class="">
