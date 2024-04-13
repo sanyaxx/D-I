@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Profile</title>
+    <link rel="stylesheet" type="text/css" href="styles/settingsprofile.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/settingsprofile.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-icons">
+        <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
+        <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
+    </div>
+    <div class="sidebar">
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+        <div class="option" onclick="openTab('profile')">Profile</div>
+        <div class="option" onclick="openTab('history')">History</div>
+        <div class="option" onclick="logout()">Logout</div>
+    </div>
+    <div class="main-content" id="tabContent">
+        <!-- Profile content will be loaded here -->
+        <div class="profile-info">
+            <!-- Profile data will be loaded here -->
+            <div class="profile-details">
+                <div class="profile-picture">
+                    <i class="fas fa-user-circle fa-5x"></i> <!-- Profile picture icon -->
+                </div>
+                <div class="profile-options">
+                    <input type="file" id="profile-pic" accept="image/*"> <!-- Add photo option -->
+                </div>
+                <div class="profile-text">
+                    <h2>Profile Information</h2>
+                    <p><strong>Username:</strong> sanya_is_the_best </p>
+                    <p><strong>Name:</strong> cj</p>
+                    <p><strong>Email:</strong> cj@gmail.com</p>
+                    <p><strong>Phone:</strong> +1234567890</p>
+                    <p><strong>Home Address:</strong> abcd, india </p>
+                    <p><strong>Office Address:</strong> abcd, india </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="functions.js"></script>
+
+<script>
+    function openTab(tabName) {
+        if (tabName === 'profile') {
+            // Display profile info
+            document.querySelector('.profile-info').style.display = 'block';
+            // Hide history if it was displayed before
+            document.querySelector('.history-info').style.display = 'none';
+        } else if (tabName === 'history') {
+            // Load history.html content
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'history.php', true);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    document.getElementById('tabContent').innerHTML = xhr.responseText;
+                } else {
+                    console.error('Request failed with status:', xhr.status);
+                }
+            };
+            xhr.send();
+        }
+    }
+</script>
+
+</body>
+</html>

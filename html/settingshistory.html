@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - History</title>
+    <link rel="stylesheet" type="text/css" href="styles/settingshistory.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" type="text/css" href="styles/settingshistory.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-icons">
+        <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
+        <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
+    </div>
+    <div class="sidebar">
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+        <div class="option" onclick="openTab('profile')">Profile</div>
+        <div class="option" onclick="openTab('history')">History</div>
+        <div class="option" onclick="logout()">Logout</div>
+    </div>
+    <div class="main-content" id="tabContent">
+        <!-- History content will be loaded here -->
+        <div class="history-info">
+            <h2>Order History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Payment Method</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- History data will be loaded here -->
+                    <tr>
+                        <td>Item 1</td>
+                        <td>2</td>
+                        <td>$20.00</td>
+                        <td>Credit Card</td>
+                        <td>2024-04-15</td>
+                    </tr>
+                    <tr>
+                        <td>Item 2</td>
+                        <td>1</td>
+                        <td>$10.00</td>
+                        <td>PayPal</td>
+                        <td>2024-04-14</td>
+                    </tr>
+                    <!-- Add more rows for additional data -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="functions.js"></script>
+
+<script>
+    function openTab(tabName) {
+        if (tabName === 'profile') {
+            // Load profile.html content
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'profile.html', true);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    document.getElementById('tabContent').innerHTML = xhr.responseText;
+                } else {
+                    console.error('Request failed with status:', xhr.status);
+                }
+            };
+            xhr.send();
+        } else if (tabName === 'history') {
+            // Display history info
+            document.querySelector('.history-info').style.display = 'block';
+            // Hide profile if it was displayed before
+            document.querySelector('.profile-info').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
