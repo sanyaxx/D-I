@@ -6,17 +6,10 @@ ini_set('display_errors', 1);
 // Include database connection
 require_once("db_connect.php");
 
-// Check if the user is not logged in
-if (!isset($_SESSION["userID"])) {
-    // Redirect to login page
-    header("Location: login.php");
-    exit; // Ensure script execution stops after redirection
-}
-
 // Prepare and bind the SQL statement with a placeholder for the category
 $sql = "SELECT * FROM items WHERE category=?";
 $stmt = $connection->prepare($sql);
-$category = "Maincourse";
+$category = "Drinks";
 $stmt->bind_param("s", $category);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -39,7 +32,7 @@ if ($result->num_rows > 0) {
     mysqli_close($connection);
 
     // Now, include the HTML content from the appetizer.html file
-    include("menu.html");
+    include("updateStock.html");
 
 } else {
     echo "0 results";
