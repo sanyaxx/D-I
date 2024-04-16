@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?> - Food4U</title>
+    <link rel="stylesheet" href="styles\menu.css">
+    <link rel="stylesheet" href="styles\navigation.css">
+    <link rel="stylesheet" href="styles\settings.css">
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+        <div class="option" onclick="goProfile()">Profile</div>
+        <div class="option" onclick="goHistory()">History</div>
+        <div class="option" onclick="logout()">Logout</div>
+    </div>
+
+    <div class="background">
+        <div class="container">
+
+            <div class="header-icons">
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+                <!-- Profile content will be loaded here -->
+                <h2><?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?></h2>
+        
+                <div class="appetizer-options">
+                    <?php foreach ($rows as $row): ?>
+                        <div class="appetizer-option">
+                            <div class="appetizer-content" style="display:flex">
+                                <div class="appetizer-details">
+                                    <h3><?= $row['name'] ?></h3>
+                                    <p><b>Price:</b> RM <?= $row['price'] ?></p>
+                                    <p>Quantity</p>
+                                    <div class="quantity">
+                                        <button class="minus" style="display: none;" onclick="decrement(this, <?= $row['itemID'] ?>)">-</button>
+                                        <input type="text" value="<?= $cartRows[$row['itemID']] ?>" readonly style="display: none;">
+                                        <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock'] ?>)"><i class="fas fa-check"></i></button>
+                                        <p class="error-message" style="display: none;">Max quantity reached!</p>
+                                    </div>
+                                    <p><b>Stock Available:</b> <?= $row['stock'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+        </div>
+    </div>
+
+<script src="functions.js"></script>
+<script src="menu.js"></script>
+
+</body>
+
+</html>
