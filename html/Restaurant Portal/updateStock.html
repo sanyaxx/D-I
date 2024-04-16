@@ -16,9 +16,10 @@
 
     <div class="sidebar">
         <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
-        <div class="option" onclick="goProfile()">Profile</div>
-        <div class="option" onclick="goHistory()">History</div>
-        <div class="option" onclick="logout()">Logout</div>
+        <div class="option" onclick="viewAppetizers()">Appetizers</div>
+        <div class="option" onclick="viewMaincourse()">Maincourse</div>
+        <div class="option" onclick="viewDessert()">Dessert</div>
+        <div class="option" onclick="view()">Drinks</div>
     </div>
 
     <div class="background">
@@ -58,6 +59,24 @@
 
 <script src="functions.js"></script>
 <script src="menu.js"></script>
+
+<script>
+    function viewAppetizers() {
+        window.location.href = "appetizer.php";
+    }
+
+    function viewMaincourse() {
+        window.location.href = "maincourse.php";
+    }
+
+    function viewDessert() {
+        window.location.href = "dessert.php";
+    }
+
+    function viewDrink() {
+        window.location.href = "drinks.php";
+    }
+</script>
 
 </body>
 
