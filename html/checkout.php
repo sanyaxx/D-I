@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($connection);
 
     // Redirect to a success page or handle the response accordingly
-    echo '<script type="text/javascript">alert("Order placed!"); window.location.href = "Home.html";</script>';
+    header("Location: checkoutSuccess.html");
     exit();
 }
 ?>
