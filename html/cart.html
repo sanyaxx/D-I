@@ -29,7 +29,15 @@
                   <tr>
                       <th class="item-icon"></th>
                       <th>Name</th>
-                      <th>Quantity</th>
+                      <td class="item-details">
+                        <!-- Quantity changing bar with plus and minus buttons -->
+                        <div class="quantity-bar">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                            <input type="number" value="<?= $inStockItem['quantity'] ?>" min="1" max="<?= $inStockItem['stock'] ?>" onchange="updateQuantity(this, <?= $inStockItem['itemID'] ?>)">
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </td>
+                    
                       <th>Price</th>
                   </tr>
               </thead>
@@ -69,38 +77,47 @@
       <?php if (isset($outOfStockitems) && count($outOfStockitems) > 0): ?>
           <h2>Out of Stock</h2>
           <table class="out-of-stock-items">
-              <thead>
-                  <tr>
-                      <th class="item-icon"></th>
-                      <th>Name</th>
-                      <th>Quantity</th>
-                      <th>Price</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <?php foreach ($outOfStockitems as $outOfStockitem): ?>
-                      <?php if ($outOfStockitem['quantity'] > $outOfStockitem['stock']): ?>
-                      <tr class="cart-item">
-                        <td class="item-icon">
-                            <img src="images/<?= $outOfStockitem['img'] ?>" alt="<?= $row['name'] ?>">
-                        </td>
-                        <td class="item-details"><?= $outOfStockitem['name'] ?></td>
-                        <td class="item-details"><?= $outOfStockitem['quantity'] ?></td>
-                        <td class="item-details"><?= $outOfStockitem['price'] ?></td>
-                      </tr>
-                      <?php endif; ?>
-                  <?php endforeach; ?>
-              </tbody>
+            <thead>
+              <tr>
+                  <th class="item-icon"></th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+              </tr>
+          </thead>
+          <tbody>                
+              <?php 
+              $total = 0; // Initialize total variable
+          
+              foreach ($inStockItems as $inStockItem):
+                  if ($inStockItem['quantity'] <= $inStockItem['stock']):
+                      $subtotal = $inStockItem['quantity'] * $inStockItem['price']; // Calculate subtotal for each item
+                      $total += $subtotal; // Add subtotal to total
+              ?>
+              <tr class="cart-item">
+                  <td class="item-icon">
+                      <img src="images/<?= $inStockItem['img'] ?>" alt="<?= $row['name'] ?>">
+                  </td>
+                  <td class="item-details"><?= $inStockItem['name'] ?></td>
+                  <!-- Quantity changing bar with plus and minus buttons -->
+                  <td class="item-details">
+                      <div class="quantity-bar">
+                          <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                          <input type="number" value="<?= $inStockItem['quantity'] ?>" min="1" max="<?= $inStockItem['stock'] ?>" onchange="updateQuantity(this, <?= $inStockItem['itemID'] ?>)">
+                          <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                      </div>
+                  </td>
+                  <td class="item-details"><?= $inStockItem['price'] ?></td>
+              </tr>
+              <?php endif; ?>
+              <?php endforeach; ?>
+          </tbody>
+          
           </table>
       <?php endif; ?>
 
     </div>
   </div>
-
-<footer>
-  <p>&copy; 2024 Food4U. All Rights Reserved.</p>
-</footer>
-
 </body>
 </html>
 

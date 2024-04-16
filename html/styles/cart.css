@@ -8,6 +8,7 @@ body, html {
   background-image: url('3.png');
   background-size: cover;
   background-position: center;
+  width: 100%; /* Extend background to cover the entire viewport width */
   height: 100%;
   display: flex;
   justify-content: center;
@@ -21,13 +22,13 @@ body, html {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add relative positioning */
 }
 
 .cart-counter {
   position: absolute;
-  top: 50%;
-  left: -20px; /* Adjust as needed for positioning */
-  transform: translateY(-50%);
+  top: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
   background-color: #ffffff; 
   color: #228B22;
   padding: 2px 5px; 
@@ -54,21 +55,35 @@ body, html {
 }
 
 .item-details {
-  flex: 0 0 90%;
-  padding-left: 65px;
+  flex: 0 0 70%; /* Adjust width */
+  padding-left: 20px; /* Adjust as needed */
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .item-details p {
-  margin-left: 65px; 
+  margin-left: 20px;  /* Adjust as needed */
 }
-.item-details h3 {
-  margin-top: 0;
-  font-family: Arial, sans-serif;
+
+.quantity-bar {
+  flex: 0 0 20%; /* Adjust width */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center buttons */
 }
-  
+
+.quantity-btn {
+  padding: 5px 10px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background-color: #ccc;
+}
+
 .total {
   margin-top: 50px; 
   text-align: center;
@@ -127,21 +142,3 @@ footer {
 .back-icon:hover {
   color: #008CBA; /* Darker shade on hover */
 }
-
-/* .back-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.back-button a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-}
-
-.back-button i {
-  font-size: 24px;
-  margin-right: 5px;
-} */
