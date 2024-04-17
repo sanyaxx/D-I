@@ -34,23 +34,26 @@ body {
 }
 
 .main-content {
-    position: relative; 
+    position: relative;
     flex-grow: 1;
     padding: 20px;
-    background-image: url('3.png'); 
-    color: #fff; 
+    background-image: url('3.png');
+    color: #fff;
+    overflow: hidden; /* Ensure overflow doesn't extend beyond container */
 }
-.main-content::before {
+
+.main-content::after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    width: 200px; /* Width of the white container */
     background-color: #fff;
-    z-index: -1; /* Ensure the white container stays behind the content */
-    border-radius: 10px; /* Adjust border-radius as needed */
+    z-index: -1;
+    border-radius: 10px;
 }
+
 
 .header-icons {
     position: absolute;

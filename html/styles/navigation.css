@@ -17,26 +17,43 @@ z-index: 999; /* Ensure the icons stay on top of other elements */
 }
 
 .header-icons i {
-font-size: 24px;
-margin-right: 10px;
-color: #ffffff; /* White color */
+  font-size: 24px;
+  margin-right: 10px;
+  color: #ffffff;
+  transition: color 0.3s; /* Add a smooth transition for the color change */
+}
 
+.header-icons i:hover {
+  color: #30ceee; /* Change the color to a lighter shade on hover */
 }
 .cart-counter {
-position: absolute;
-top: 50%;
-left: -20px; /* Adjust as needed for positioning */
-transform: translateY(-50%);
-background-color: #ffffff; 
-color: #228B22;
-padding: 2px 5px; 
-border-radius: 70%;
-font-size: 12px; 
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  color: #228B22;
+  padding: 2px 5px;
+  border-radius: 70%;
+  font-size: 12px;
+  transition: background-color 0.3s, color 0.3s; /* Add smooth transitions for both background color and text color changes */
 }
 
+.cart-counter:hover {
+  background-color: #1ca2e4;
+  color: #c4c9cb; 
+}
 .back-button {
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px;
+  background-color: #ffffff;
+  color: #228B22;
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+}
+
+.back-button:hover {
+  background-color: #f5f5f5; /* Change the background color to a lighter shade on hover */
 }
