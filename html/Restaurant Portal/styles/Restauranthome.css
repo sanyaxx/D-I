@@ -73,6 +73,21 @@ body, html {
 .management-option button:hover {
   background-color: rgb(73, 135, 75);
 }
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.order-counter {
+  position: absolute;
+  top: -5px; 
+  right: -5px;
+  background-color: #063211; 
+  color: #fff; 
+  border-radius: 50%; 
+  padding: 5px; 
+  font-size: 12px; 
+}
 
 footer {
   position: absolute;

@@ -18,19 +18,22 @@
     <h2> <center> Restaurant Portal - Home </center> </h2>
 
     <div class="management-options">
-      <!-- Option to update available dishes -->
+
       <div class="management-option">
         <i class="fas fa-utensils"></i>
         <h3>Update Dishes</h3>
         <button class="button hover" onclick="updateDishes()">Update</button>
       </div>
       
-      <!-- Option to accept or deny orders -->
       <div class="management-option">
-        <i class="fas fa-clipboard-check"></i>
+        <div class="icon-container">
+            <i class="fas fa-clipboard-check"></i>
+            <span class="order-counter">0</span>
+        </div>
         <h3>Manage Orders</h3>
         <button class="button hover" onclick="manageOrders()">Manage</button>
-      </div>
+    </div>
+    
     </div>
   </div>
 </div>
@@ -40,6 +43,8 @@
 </footer>
 
 <script>
+  let orderCount = 0; // Initialize order count
+
   // Function placeholders for button actions
   function updateDishes() {
     // Implement functionality for updating dishes
@@ -48,6 +53,8 @@
 
   function manageOrders() {
     // Implement functionality for managing orders
+    orderCount++; // Increment order count
+    document.getElementById("orderCounter").textContent = orderCount; // Update counter
     console.log("Managing orders...");
   }
 </script>
