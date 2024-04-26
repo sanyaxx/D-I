@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .background {
@@ -17,7 +18,7 @@ body, html {
 .container {
     width: 90%;
     max-width: 400px; /* Adjusted width for smaller screens */
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -36,6 +37,13 @@ body, html {
 .header h1 {
     font-size: 24px;
     color: #333;
+    margin-bottom: 20px;
+}
+
+.container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 form {
@@ -44,37 +52,42 @@ form {
 
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 input[type="text"],
 input[type="password"],
 input[type="submit"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 12px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 .small-btn {
     width: auto;
-    padding: 5px 15px; /* Adjusted padding for smaller buttons */
-    font-size: 14px; /* Adjusted font size */
+    padding: 8px 12px; /* Adjusted padding for smaller buttons */
+    font-size: 16px; /* Adjusted font size */
 }
 
 input[type="submit"] {
     background-color: #2f781b;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: rgb(73, 135, 75);
+    background-color: #255e14;
 }
 
 footer {
+    margin-top: 30px;
     text-align: center;
-    color: #fff; 
+    color: #666;
+    font-size: 14px;
 }

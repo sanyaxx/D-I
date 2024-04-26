@@ -21,12 +21,6 @@
             <div class="option" onclick="goDrinks()">Drinks</div>
         </div>
         <div class="main-content" id="tabContent">
-            <div class="header-icons">
-                <button class="logout-btn" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
-            </div>
-
             <h2>
                 <?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?>
             </h2>
@@ -64,19 +58,19 @@
 
     <script>
         function goAppetizers() {
-            window.location.href = "appetizer.php";
+            window.location.href = "../php/appetizer.php";
         }
 
         function goMaincourse() {
-            window.location.href = "maincourse.php";
+            window.location.href = "../php/maincourse.php";
         }
 
         function goDesserts() {
-            window.location.href = "dessert.php";
+            window.location.href = "../php/dessert.php";
         }
 
         function goDrinks() {
-            window.location.href = "drinks.php";
+            window.location.href = "../php/drinks.php";
         }
 
         function updateItem(itemID, isDelete) {
@@ -135,6 +129,10 @@
                 }
             };
             xhr.send(JSON.stringify(data));
+        }
+
+        function goBack(){
+            window.location.href = "../html/Restauranthome.html"
         }
     </script>
 

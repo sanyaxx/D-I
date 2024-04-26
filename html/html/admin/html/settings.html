@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Settings</title>
+</head>
+<body>
+    <h1>Restaurant Settings</h1>
+    <form action="../php/settings.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Update">
+    </form>
+
+    <form action="../php/logout.php" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>
+
+<script>
+    // Check for success or error messages in the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    const error = urlParams.get('error');
+
+    if (success) {
+        alert("Restaurant details updated successfully.");
+    }
+
+    if (error) {
+        alert("Error updating restaurant details.");
+    }
+</script>

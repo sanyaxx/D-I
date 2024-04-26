@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Failed - Food4U</title>
+    <link rel="stylesheet" href="../styles/checkoutfailed.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Checkout Failed</h2>
+    <p>SORRY!! Your Order cannot be delivered.</p>
+    <a href="Home.html">Return to Home</a>
+</div>
+<footer>
+    <p>&copy; 2024 Food4U. All Rights Reserved.</p>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get the orderID from the URL parameters
+        var orderID = getUrlParameter('orderID');
+
+        // Make AJAX request to decline the order with orderID
+        $.ajax({
+            url: '../php/declineOrder.php',
+            type: 'POST',
+            data: { orderID: orderID }, // Send orderID as data
+            success: function(response) {
+                // Handle the response if needed
+                console.log('Order declined successfully');
+            },
+            error: function(xhr, status, error) {
+                // Handle any errors
+                console.error('Error declining order:', error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

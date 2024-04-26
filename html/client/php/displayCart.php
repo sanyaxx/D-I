@@ -36,10 +36,13 @@ $inStockResult = $inStockStmt->get_result();
 // Check if there are rows in the result for in stock items
 if ($inStockResult->num_rows > 0) {
     // Loop through each row of data and add it to the in stock items array
-    while($inStockItem = $inStockResult->fetch_assoc()) {
-        $inStockItems[] = $inStockItem;
+    while($row = $inStockResult->fetch_assoc()) {
+        $rows[] = $row;
     }
 }
+
+// Include fetch quantity from cart
+require_once("fetchCartQty.php");
 
 // Close the database connection
 mysqli_close($connection);

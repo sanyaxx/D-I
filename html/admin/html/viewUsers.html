@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order History - Admin Dashboard</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link rel="stylesheet" href="../styles/order_history.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../styles/viewUsers.css">
+</head>
+
 <body>
     <div class="container">
         <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i> 
@@ -14,6 +15,24 @@
         
         <!-- Filter Button -->
         <button id="filterButton">Filter</button>
+
+        <!-- Filter Criteria -->
+        <div id="filterCriteria" style="display: none;">
+            <div>
+                <label for="filterUserID">UserID:</label>
+                <input type="text" id="filterUserID">
+                
+                <label for="filterUsername">Username:</label>
+                <input type="text" id="filterUsername">
+                
+                <label for="filterEmail">Email:</label>
+                <input type="text" id="filterEmail">
+                
+                <label for="filterPhone">Contact No:</label>
+                <input type="text" id="filterPhone">
+            </div>
+            <button id="clearFilterButton">Clear Filter</button>
+        </div>
         
         <!-- Table -->
         <table id="userTable">
@@ -40,27 +59,14 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
-        <!-- Filter Criteria -->
-        <div id="filterCriteria" style="display: none;">
-            <div>
-                <label for="filterUserID">Filter UserID:</label>
-                <input type="text" id="filterUserID">
-                
-                <label for="filterUsername">Filter Username:</label>
-                <input type="text" id="filterUsername">
-                
-                <label for="filterEmail">Filter Email:</label>
-                <input type="text" id="filterEmail">
-                
-                <label for="filterPhone">Filter Contact No:</label>
-                <input type="text" id="filterPhone">
-            </div>
-            <button id="clearFilterButton">Clear Filter</button>
-        </div>
     </div>
 
     <script>
+        // Function to go back
+        function goBack(){
+            window.location.href = "../html/Restauranthome.html";
+        }
+
         // Get filter button and filter criteria
         const filterButton = document.getElementById('filterButton');
         const filterCriteria = document.getElementById('filterCriteria');
@@ -85,6 +91,7 @@
         filterPhone.addEventListener('input', filterTable);
         
         function toggleFilterCriteria() {
+            console.log('Filter button clicked');
             if (filterCriteria.style.display === 'none') {
                 filterCriteria.style.display = 'block';
             } else {

@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
     mysqli_close($connection);
 
     // Now, include the HTML content from the appetizer.html file
-    include("updateStock.html");
+    include("../html/updateStock.html");
 
 } else {
     echo "0 results";

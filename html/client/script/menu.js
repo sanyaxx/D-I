@@ -1,3 +1,7 @@
+// Include functions.js
+document.write('<script src="functions.js"></script>');
+
+
 // code to update visibility of quantity elements based on initial value
 const quantityInputs = document.querySelectorAll('.quantity input[type="text"]');
 quantityInputs.forEach(input => {
@@ -17,14 +21,13 @@ quantityInputs.forEach(input => {
     }
 });
 
+
 function increment(button, itemID, maxQuantity) {
     const quantityDiv = button.parentNode;
     const minusButton = quantityDiv.querySelector('.minus');
     const plusButton = quantityDiv.querySelector('.plus');
     const input = quantityDiv.querySelector('input[type="text"]');
     const cartIcon = document.querySelector("#shopping-cart");
-    const errorMessage = quantityDiv.querySelector('.error-message');
-
     const currentValue = parseInt(input.value);
 
     if (currentValue < maxQuantity) {
@@ -36,9 +39,6 @@ function increment(button, itemID, maxQuantity) {
             plusButton.style.display = 'none'; // Hide increment button
             errorMessage.style.display = 'block'; // Display error message
         } else {
-            // Hide error message if displayed
-            errorMessage.style.display = 'none';  
-
             // Increase the current value
             input.value = currentValue + 1;
 

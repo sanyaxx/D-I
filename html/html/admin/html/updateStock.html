@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Update Stock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/admin_styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+            <div class="option" onclick="goAppetizers()">Appetizers</div>
+            <div class="option" onclick="goMaincourse()">Main Course</div>
+            <div class="option" onclick="goDesserts()">Dessert</div>
+            <div class="option" onclick="goDrinks()">Drinks</div>
+        </div>
+        <div class="main-content" id="tabContent">
+            <div class="header-icons">
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+
+            <h2>
+                <?= isset($rows[0]['category']) ? $rows[0]['category'] : 'Category' ?>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <?php foreach ($rows as $row): ?>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="../../images/<?=$row['img'] ?>" alt="<?= $row['name'] ?>" style="width: 50px; height: auto;">
+                        </td>
+                        <td id="name_<?= $row['itemID'] ?>"><?= $row['name'] ?></td>
+                        <td id="desc_<?= $row['itemID'] ?>"><?= $row['description'] ?></td>
+                        <td><input type="number" id="price_<?= $row['itemID'] ?>" value="<?= $row['price'] ?>" step="0.01" min="0"></td>
+                        <td><input type="number" id="stock_<?= $row['itemID'] ?>" value="<?= $row['stock'] ?>" min="0"></td>
+                        <td>
+                            <button onclick="updateItem(<?= $row['itemID'] ?>, false)">Update</button>
+                            <button onclick="updateItem(<?= $row['itemID'] ?>, true)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function goAppetizers() {
+            window.location.href = "appetizer.php";
+        }
+
+        function goMaincourse() {
+            window.location.href = "maincourse.php";
+        }
+
+        function goDesserts() {
+            window.location.href = "dessert.php";
+        }
+
+        function goDrinks() {
+            window.location.href = "drinks.php";
+        }
+
+        function updateItem(itemID, isDelete) {
+            var name = document.getElementById("name_" + itemID).innerText;
+            var desc = document.getElementById("desc_" + itemID).innerText;
+            var price = document.getElementById("price_" + itemID).value;
+            var stock = document.getElementById("stock_" + itemID).value;
+        
+            // If it's a delete operation, ask for confirmation
+            if (isDelete) {
+                var confirmation = confirm("Are you sure you want to delete this item?");
+                if (!confirmation) {
+                    return; // Exit the function if not confirmed
+                }
+            } else {
+                // Check if price or stock is less than 0
+                if (price < 0 || stock < 0) {
+                    alert("Price and quantity must be greater than or equal to 0.");
+                    return; // Exit the function if validation fails
+                }
+            }
+        
+            // Prepare data to be sent
+            var data = {
+                itemID: itemID,
+                name: name,
+                desc: desc,
+                price: price,
+                stock: stock,
+                isDelete: isDelete // Add a parameter to indicate if it's a delete operation
+            };
+        
+            // Send AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "../php/updateItem.php", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // If successful, reload the page
+                        window.location.reload();
+                        if (isDelete) {
+                            alert('Item deleted successfully!');
+                        } else {
+                            alert('Database updated successfully!');
+                        }
+                    } else {
+                        // Handle error
+                        console.error('Error:', xhr.responseText);
+                        if (isDelete) {
+                            alert('Failed to delete item!');
+                        } else {
+                            alert('Failed to update Database!');
+                        }
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -20,6 +19,7 @@ h1 {
     padding: 10px; 
     border-radius: 5px; 
 }
+
 .back-icon {
     position: absolute;
     left: 20px; /* Adjust as needed */
@@ -27,6 +27,7 @@ h1 {
     cursor: pointer;
     color: #ffffff; /* Icon color */
 }
+
 .back-icon:hover {
     color: blue; /* Change color on hover */
 }
@@ -44,11 +45,12 @@ button.details-btn {
 button.details-btn:hover {
     background-color: #0c6d11; /* Darker green on hover */
 }
+
 #filterButton {
     background-color: #1c6017;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 16px;
     cursor: pointer;
     border-radius: 5px;
     position: absolute;
@@ -65,6 +67,10 @@ button.details-btn:hover {
 #filterCriteria {
     display: none;
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #filterCriteria label {
@@ -72,19 +78,19 @@ button.details-btn:hover {
 }
 
 #filterCriteria input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 8px;
     margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 #clearFilterButton {
     background-color: #c70000;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 #clearFilterButton:hover {
@@ -94,7 +100,6 @@ button.details-btn:hover {
 /* Table styles */
 table {
     margin-top: 50px;
-  
     border-collapse: collapse;
     width: calc(100% - 40px);
     margin-left: 20px; 
@@ -103,13 +108,7 @@ table {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Added shadow */
-
 }
-
-
-   
-  
- 
 
 table th,
 table td {

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <!-- Add your CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #333;
+        }
+        
+        .order-details {
+            margin-top: 20px;
+        }
+        
+        .order-details table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #ddd;
+        }
+        
+        .order-details th,
+        .order-details td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .order-details th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .order-details td {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .order-details tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+        
+        .order-details tr:hover td {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Details</h1>
+        <div class="order-details">
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <td>#<?= $row['orderID'] ?></td>
+                </tr>
+                <tr>
+                    <th>Items Ordered</th>
+                    <td><?= $row['itemNames'] ?></td>
+                </tr>
+                <tr>
+                    <th>Method of Payment</th>
+                    <td><?= $row['payment'] ?></td>
+                </tr>
+                <tr>
+                    <th>Total Amount</th>
+                    <td><?= $row['total_price'] ?></td>
+                </tr>
+                <tr>
+                    <th>Time of Transaction</th>
+                    <td><?= $row['order_date'] ?></td>
+                </tr>
+                <tr>
+                    <th>User ID</th>
+                    <td><?= $row['userID'] ?></td>
+                </tr>
+                <tr>
+                    <th>UserName</th>
+                    <td><?= $row['username'] ?></td>
+                </tr>
+                <tr>
+                    <th>Email ID</th>
+                    <td><?= $row['email'] ?></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

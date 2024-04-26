@@ -21,7 +21,7 @@
         <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
       </div>
 
-      <?php if (isset($inStockItems) && count($inStockItems) > 0): ?>
+      <?php if (isset($rows) && count($rows) > 0): ?>
         <h2>Cart</h2>
         <table class="cart-items">
           <thead>
@@ -36,25 +36,26 @@
             <?php 
             $total = 0; // Initialize total variable
         
-            foreach ($inStockItems as $inStockItem):
-                if ($inStockItem['quantity'] <= $inStockItem['stock']):
-                    $subtotal = $inStockItem['quantity'] * $inStockItem['price']; // Calculate subtotal for each item
+            foreach ($rows as $row):
+                if ($row['quantity'] <= $row['stock']):
+                    $subtotal = $row['quantity'] * $row['price']; // Calculate subtotal for each item
                     $total += $subtotal; // Add subtotal to total
             ?>
               <tr class="cart-item">
                 <td class="item-icon">
-                  <img src="../../images/<?= $inStockItem['img'] ?>" alt="<?= $row['name'] ?>">
+                  <img src="../../images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
                 </td>
-                <td class="item-details"><?= $inStockItem['name'] ?></td>
+                <td class="item-details"><?= $row['name'] ?></td>
                 <td class="item-details">
                   <!-- Quantity changing bar with plus and minus buttons -->
                   <div class="quantity-bar">
-                    <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-                    <input type="number" value="<?= $inStockItem['quantity'] ?>" min="1" max="<?= $inStockItem['stock'] ?>" onchange="updateQuantity(this, <?= $inStockItem['itemID'] ?>)">
-                    <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    <button class="minus" onclick="decrement(this, <?= $row['itemID'] ?>)">-</button>
+                    <input type="text" value="<?= $cartRows[$row['itemID']] ?>" max="<?= $row['stock'] ?>" readonly style="display: block;">
+                    <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock']?>)">+</button>
+                    <!-- <p class="error-message" style="display: none;">Max quantity reached!</p> -->
                   </div>
                 </td>
-                <td class="item-details"><?= $inStockItem['price'] ?></td>
+                <td class="item-details"><?= $row['price'] ?></td>
               </tr>
             <?php endif; ?>
             <?php endforeach; ?>
@@ -83,21 +84,23 @@
               </tr>
             </thead>
             <tbody>                
-              <?php foreach ($inStockItems as $inStockItem): ?>
+              <?php foreach ($rows as $row): ?>
               <tr class="cart-item">
                   <td class="item-icon">
-                      <img src="../../images/<?= $inStockItem['img'] ?>" alt="<?= $row['name'] ?>">
+                      <img src="../../images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
                   </td>
-                  <td class="item-details"><?= $inStockItem['name'] ?></td>
+                  <td class="item-details"><?= $row['name'] ?></td>
                   <!-- Quantity changing bar with plus and minus buttons -->
                   <td class="item-details">
+                      <!-- Quantity changing bar with plus and minus buttons -->
                       <div class="quantity-bar">
-                          <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-                          <input type="number" value="<?= $inStockItem['quantity'] ?>" min="1" max="<?= $inStockItem['stock'] ?>" onchange="updateQuantity(this, <?= $inStockItem['itemID'] ?>)">
-                          <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        <button class="minus" onclick="decrement(this, <?= $row['itemID']?>)">-</button>
+                        <input type="text" value="<?= $cartRows[$row['itemID']] ?>" max="<?= $row['stock'] ?>" readonly style="display: block;">
+                        <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock']?>)">+</button>
+                        <!-- <p class="error-message" style="display: none;">Max quantity reached!</p> -->
                       </div>
                   </td>
-                  <td class="item-details"><?= $inStockItem['price'] ?></td>
+                  <td class="item-details"><?= $row['price'] ?></td>
               </tr>
               <?php endforeach; ?>
             </tbody>
@@ -116,5 +119,6 @@
  
 </script>
 
+<script src="../script/cart.js"></script>
 <script src="../script/functions.js"></script>
 

@@ -101,3 +101,24 @@ footer {
   text-align: center;
   color: #fff; 
 }
+
+.header-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1; 
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-btn i {
+  margin-right: 5px;
+}

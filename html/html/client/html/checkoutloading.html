@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Processing - Food4U</title>
+<link rel="stylesheet" href="../styles\checkoutloading.css">
+<link rel="stylesheet" href="../styles\navigation.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header-icons">
+ 
+  </div>
+
+  <div style="text-align: center;">
+    <h2>Kindly wait for your order to be accepted.</h2>
+    <h3>Please keep refreshing your page.</h3>
+    <div class="loading-icon">
+        <!--<i class="fas fa-spinner fa-spin"></i>   normal loading-->
+        <i class="fas fa-pizza-slice fa-spin" style="font-size: 48px; color: #eb792d;"></i> 
+      </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to check the status every 1 second
+        function checkStatus() {
+            $.ajax({
+                url: '../php/checkStatus.php?',
+                type: 'GET',
+                dataType: 'json', // Specify JSON as the expected data type
+                error: function(xhr, status, error) {
+                
+                // Handle any errors here
+                console.error('Error checking status:', error);
+                }
+            });
+        }
+    
+        // Check the status initially
+        checkStatus();
+    
+        // Check the status every 1 second
+        setInterval(checkStatus, 1000);
+    });
+        
+</script>

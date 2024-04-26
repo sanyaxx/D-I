@@ -11,12 +11,15 @@
     <div class="container">
         <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i> 
         <h1 class="header">Restaurant Settings</h1>
-        <form action="../php/settings.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
+        <form id="settingsForm" action="../php/settings.php" method="post">
+            <label for="username">New Username:</label>
+            <input type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmation">Password Confirmation:</label>
+            <input type="password" id="confirmation" name="confirmation" required>
 
             <input type="submit" value="Update" class="small-btn">
         </form>
@@ -30,6 +33,17 @@
 
 
 <script>
+
+    document.getElementById("settingsForm").addEventListener("submit", function(event) {
+        const password = document.getElementById("password").value;
+        const confirmation = document.getElementById("confirmation").value;
+
+        if (password !== confirmation) {
+            alert("Password and confirmation must match.");
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+
     // Check for success or error messages in the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const success = urlParams.get('success');
@@ -37,9 +51,17 @@
 
     if (success) {
         alert("Restaurant details updated successfully.");
+        success=0;
     }
 
     if (error) {
         alert("Error updating restaurant details.");
+        error=0;
+    }
+</script>
+
+<script>
+    function goBack(){
+        window.location.href = "../html/Restauranthome.html"
     }
 </script>
