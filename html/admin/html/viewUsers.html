@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/admin_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Order History</h1>
+        
+        <!-- Filter Button -->
+        <button id="filterButton">Filter</button>
+        
+        <!-- Filter Criteria -->
+        <div id="filterCriteria" style="display: none;">
+            <div>
+                <label for="filterUserID">Filter UserID:</label>
+                <input type="text" id="filterUserID">
+                
+                <label for="filterUsername">Filter Username:</label>
+                <input type="text" id="filterUsername">
+                
+                <label for="filterEmail">Filter Email:</label>
+                <input type="text" id="filterEmail">
+                
+                <label for="filterPhone">Filter Contact No:</label>
+                <input type="text" id="filterPhone">
+            </div>
+            <button id="clearFilterButton">Clear Filter</button>
+        </div>
+        
+        <!-- Table -->
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($rows as $row): ?>
+                    <tr>
+                        <td><?= $row['userID'] ?></td>
+                        <td><?= $row['username'] ?></td>
+                        <td>****</td>
+                        <td><?= $row['name'] ?></td>
+                        <td><?= $row['email'] ?></td>
+                        <td><?= $row['phone'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Get filter button and filter criteria
+        const filterButton = document.getElementById('filterButton');
+        const filterCriteria = document.getElementById('filterCriteria');
+        
+        // Get all input fields
+        const filterUserID = document.getElementById('filterUserID');
+        const filterUsername = document.getElementById('filterUsername');
+        const filterEmail = document.getElementById('filterEmail');
+        const filterPhone = document.getElementById('filterPhone');
+        
+        // Get the table rows
+        const tableRows = document.querySelectorAll('#userTable tbody tr');
+
+        // Add event listeners to filter button and clear filter button
+        filterButton.addEventListener('click', toggleFilterCriteria);
+        document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
+        
+        // Add event listeners to filter fields for filtering
+        filterUserID.addEventListener('input', filterTable);
+        filterUsername.addEventListener('input', filterTable);
+        filterEmail.addEventListener('input', filterTable);
+        filterPhone.addEventListener('input', filterTable);
+        
+        function toggleFilterCriteria() {
+            if (filterCriteria.style.display === 'none') {
+                filterCriteria.style.display = 'block';
+            } else {
+                filterCriteria.style.display = 'none';
+            }
+        }
+        
+        function filterTable() {
+            const userIDFilter = filterUserID.value.toLowerCase();
+            const usernameFilter = filterUsername.value.toLowerCase();
+            const emailFilter = filterEmail.value.toLowerCase();
+            const phoneFilter = filterPhone.value.toLowerCase();
+            
+            // Loop through all table rows
+            tableRows.forEach(row => {
+                const userID = row.cells[0].textContent.toLowerCase();
+                const username = row.cells[1].textContent.toLowerCase();
+                const email = row.cells[4].textContent.toLowerCase();
+                const phone = row.cells[5].textContent.toLowerCase();
+                
+                // Hide the row if it doesn't match the filter criteria
+                if (userID.includes(userIDFilter) && 
+                    username.includes(usernameFilter) &&
+                    email.includes(emailFilter) &&
+                    phone.includes(phoneFilter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function clearFilters() {
+            filterUserID.value = '';
+            filterUsername.value = '';
+            filterEmail.value = '';
+            filterPhone.value = '';
+            
+            // Show all table rows
+            tableRows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+    </script>
+</body>
+</html>
