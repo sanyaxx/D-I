@@ -1,0 +1,115 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('3.png') no-repeat right; 
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px; /* Adjusted width */
+    background-color: #254636;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar .option {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.sidebar .option:hover {
+    background-color: #3b793d; 
+}
+
+.sidebar .option.active-option {
+    background-color: #3b793d; 
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header-icons {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    background-color: #356f13;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.logout-btn i {
+    margin-right: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center; /* Center align text */
+}
+
+table th {
+    background-color: #156319;
+    color: #fff;
+}
+
+table td {
+    background-color: #fff;
+}
+
+table img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+input[type="number"] {
+    width: 80px; 
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 5px; 
+}
+
+button {
+    background-color: #1c6017;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #0c4a1e;
+}
+
+
+.back-icon {
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-icon:hover {
+    color: #ccc;
+}

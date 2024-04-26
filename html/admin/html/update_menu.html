@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Update Stock</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../styles/admin_styles_.css">
+    <link rel="stylesheet" type="text/css" href="../styles/updatemenu.css">
 </head>
 
 <body>
@@ -58,10 +58,11 @@
                         <td>
                             <input type="number" value="<?= $row['stock'] ?>">
                         </td>
-                        <td>
-                            <button>Update</button>
-                            <button>Delete</button>
+                        <td class="action-buttons"> <!-- Add a class to the cell containing action buttons -->
+                            <button class="update-btn">Update</button>
+                            <button class="delete-btn">Delete</button>
                         </td>
+                        
                     </tr>
                 </tbody>
                 <?php endforeach; ?>

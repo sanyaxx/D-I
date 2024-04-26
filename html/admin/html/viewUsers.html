@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order History - Admin Dashboard</title>
-    <link rel="stylesheet" href="../styles/admin_styles.css">
+    <link rel="stylesheet" href="../styles/order_history.css">
 </head>
 <body>
     <div class="container">
@@ -12,24 +12,6 @@
         
         <!-- Filter Button -->
         <button id="filterButton">Filter</button>
-        
-        <!-- Filter Criteria -->
-        <div id="filterCriteria" style="display: none;">
-            <div>
-                <label for="filterUserID">Filter UserID:</label>
-                <input type="text" id="filterUserID">
-                
-                <label for="filterUsername">Filter Username:</label>
-                <input type="text" id="filterUsername">
-                
-                <label for="filterEmail">Filter Email:</label>
-                <input type="text" id="filterEmail">
-                
-                <label for="filterPhone">Filter Contact No:</label>
-                <input type="text" id="filterPhone">
-            </div>
-            <button id="clearFilterButton">Clear Filter</button>
-        </div>
         
         <!-- Table -->
         <table id="userTable">
@@ -56,6 +38,24 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        
+        <!-- Filter Criteria -->
+        <div id="filterCriteria" style="display: none;">
+            <div>
+                <label for="filterUserID">Filter UserID:</label>
+                <input type="text" id="filterUserID">
+                
+                <label for="filterUsername">Filter Username:</label>
+                <input type="text" id="filterUsername">
+                
+                <label for="filterEmail">Filter Email:</label>
+                <input type="text" id="filterEmail">
+                
+                <label for="filterPhone">Filter Contact No:</label>
+                <input type="text" id="filterPhone">
+            </div>
+            <button id="clearFilterButton">Clear Filter</button>
+        </div>
     </div>
 
     <script>

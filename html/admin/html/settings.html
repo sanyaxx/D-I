@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Settings</title>
+    <link rel="stylesheet" href="../styles/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-    <h1>Restaurant Settings</h1>
-    <form action="../php/settings.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+<body class="background">
+    <div class="container">
+        <h1 class="header">Restaurant Settings</h1>
+        <form action="../php/settings.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
 
-        <input type="submit" value="Update">
-    </form>
+            <input type="submit" value="Update" class="small-btn">
+        </form>
 
-    <form action="logout.php" method="post">
-        <input type="submit" value="Logout">
-    </form>
+        <form action="logout.php" method="post">
+            <input type="submit" value="Logout" class="small-btn">
+        </form>
+    </div>
 </body>
 </html>
+
 
 <script>
     // Check for success or error messages in the URL parameters
