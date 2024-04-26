@@ -18,12 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Fetch the row from the result set
         $row = $result->fetch_assoc();
-        if (password_verify($password, $row["password"])) {
+        if ($password === $row["password"]) {
             // Password is correct
-            // Start a session and store necessary data (if any)
-            // session_start();
-            // $_SESSION['userID'] = $row['userID'];          
-
+            
             // Redirect to home page
             header("Location: ../html/Restauranthome.html");
             exit(); // Ensure script stops execution after redirection
