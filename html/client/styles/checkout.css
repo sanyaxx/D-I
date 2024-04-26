@@ -1,0 +1,184 @@
+/* Set background image for the body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-image: url('3.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  margin-top: 0;
+}
+
+.delivery-details,
+.charges,
+.payment-method,
+.payment-details {
+  margin-bottom: 20px;
+}
+
+/* Icon for delivery */
+.delivery-details h3::before {
+  content: "\1F69A"; /* Unicode for delivery truck icon */
+  margin-right: 10px;
+}
+
+.delivery-details input {
+  display: block;
+  margin-bottom: 10px; /* Add some spacing between inputs */
+}
+
+.payment-method label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.payment-method button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #3b793d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.payment-method button:hover {
+  background-color: #45a049;
+}
+
+.payment-details {
+  display: none;
+}
+
+/* Nicer fonts */
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Apply and View Available Vouchers button */
+.discount button,
+.vouchers button {
+  background-color: #6f9b3c;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.discount button:hover,
+.vouchers button:hover {
+  background-color: #7cb342; 
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.back-button button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.back-button button:before {
+  content: "\2190"; /* Unicode for back arrow icon */
+  margin-right: 5px;
+}
+
+.back-button button:hover {
+  color: #666;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+  }
+
+  .payment-method button {
+    width: 100%;
+  }
+
+  .discount button,
+  .vouchers button {
+    width: 100%;
+  }
+}
+
+.delivery-details input {
+  display: block;
+  width: calc(100% - 20px); /* Adjusting width to account for padding */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for depth */
+  box-sizing: border-box;
+}
+
+.delivery-details input:focus {
+  outline: none;
+  border-color: #3b793d; /* Change border color on focus */
+  box-shadow: 0 2px 5px rgba(59, 121, 61, 0.5); /* Adjust shadow on focus */
+}
+
+/* Order Summary */
+.order-summary {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.order-summary h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.order-summary p {
+  margin: 0;
+}
+
+.order-summary p:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.order-summary .item {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  margin: 0; /* Remove default margin */
+  font-size: 0.9em; /* Decrease font size */
+}
+
+.order-summary .item:last-child {
+  border-bottom: none;
+}

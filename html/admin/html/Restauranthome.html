@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Management - Food4U</title>
+<link rel="stylesheet" href="../styles/Restauranthome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<div class="background">
+  <div class="container">
+    <h2>Restaurant Portal - Home</h2>
+
+    <div class="management-options">
+      <div class="management-option">
+        <i class="fas fa-utensils"></i>
+        <button class="button hover" onclick="update_menu()">Update Menu</button>
+      </div>
+      
+      <div class="management-option">
+        <div class="icon-container">
+            <i class="fas fa-clipboard-check"></i>
+        </div>
+        <button class="button hover" onclick="orderHistory()">Order History</button>
+      </div>
+
+      <div class="management-option">
+        <i class="fas fa-user"></i>
+            <button class="button hover" onclick="manageUsers()">Manage Users</button>
+        </div>
+
+        <div class="management-option">
+          <i class="fas fa-cog"></i>
+          <button class="button hover" onclick="settings()">Settings</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Food4U. All Rights Reserved.</p>
+</footer>
+
+<script>
+  let orderCount = 0; // Initialize order count
+
+  // Function placeholders for button actions
+  function update_menu() {
+    // Implement functionality for updating dishes
+    window.location.href = "../php/appetizer.php"
+  }
+
+  function orderHistory() {
+    // Implement functionality for updating dishes
+    window.location.href = "../php/orderHistory.php"
+  }
+
+  function manageUsers() {
+    // Implement functionality for updating dishes
+    window.location.href = "../php/viewUsers.php"
+  }
+
+  function settings() {
+    // Implement functionality for updating dishes
+    window.location.href = "settings.html"
+  }
+</script>
+
+</body>
+</html>
