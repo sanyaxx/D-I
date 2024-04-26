@@ -5,6 +5,7 @@ body {
     padding: 0;
     background: url('3.png') no-repeat center center fixed; 
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {
@@ -13,14 +14,36 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
-    background-color: #fff;
     padding: 10px; 
     border-radius: 5px; 
 }
+.back-icon {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
+    cursor: pointer;
+    color: #ffffff; /* Icon color */
+}
+.back-icon:hover {
+    color: blue; /* Change color on hover */
+}
 
+button.details-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0.9, 0.9, 0.9, 0.9); 
+}
+
+button.details-btn:hover {
+    background-color: #0c6d11; /* Darker green on hover */
+}
 #filterButton {
     background-color: #1c6017;
     color: #fff;
@@ -71,22 +94,38 @@ h1 {
 /* Table styles */
 table {
     margin-top: 50px;
-    width: 100%;
+  
     border-collapse: collapse;
+    width: calc(100% - 40px);
+    margin-left: 20px; 
+    margin-right: 20px; 
+    background-color: rgba(255, 255, 255, 0.7); /* Translucent white background */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Added shadow */
+
 }
+
+
+   
+  
+ 
 
 table th,
 table td {
-    padding: 10px;
+    padding: 12px; /* Increased padding */
     border-bottom: 1px solid #ccc;
     text-align: center;
+    border-radius: 5px; /* Added border radius */
 }
 
 table th {
     background-color: #156319;
     color: #fff;
+    border-radius: 5px;
 }
 
 table td {
     background-color: #fff;
+    border-radius: 5px;
 }

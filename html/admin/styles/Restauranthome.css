@@ -44,20 +44,23 @@ body, html {
   flex-wrap: wrap; 
 }
 
-.management-option {
-  flex: 0 0 calc(45% - 10px); /* Centering the options */
-  text-align: center;
-  margin-bottom: 20px; 
-}
-
 .management-option h3 {
   margin-top: 10px;
   font-family: Arial, sans-serif;
 }
 
+
+.management-option {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+  margin-bottom: 20px;
+}
+
 .management-option i {
   font-size: 3em;
   color: #2f781b;
+  margin-bottom: 10px; /* Adjust spacing between icon and button */
 }
 
 .management-option button {
@@ -69,6 +72,7 @@ body, html {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
 }
+
 
 .management-option button:hover {
   background-color: rgb(73, 135, 75);

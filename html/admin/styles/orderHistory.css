@@ -1,0 +1,96 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('3.png') no-repeat center center fixed; 
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    margin: 20px;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+.back-icon {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
+    cursor: pointer;
+    color: #ffffff; /* Icon color */
+}
+.back-icon:hover {
+    color: blue; /* Change color on hover */
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+button.details-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0.9, 0.9, 0.9, 0.9); 
+}
+
+button.details-btn:hover {
+    background-color: #0c6d11; /* Darker green on hover */
+}
+
+
+.details-button {
+    background-color: #19641c; 
+    color: white;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s;
+}s
+
+.details-button:hover {
+    background-color: #076b0c; 
+}
+
+
+select[name="status"] {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(200, 200, 200, 0.7); 
+    border-radius: 10px;
+    padding: 10px;
+}
+
+table th,
+table td {
+    padding: 12px; /* Increased padding */
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+table th {
+    background-color: #156319;
+    color: #fff;
+    border-radius: 5px;
+}
+
+table td {
+    background-color: #fff;
+    border-radius: 5px;
+}

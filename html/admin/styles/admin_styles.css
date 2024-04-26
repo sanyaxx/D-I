@@ -22,6 +22,16 @@ body, html {
     width: 80%;
     max-width: 600px; 
 }
+.back-icon {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
+    cursor: pointer;
+    color: #ffffff; /* Icon color */
+}
+.back-icon:hover {
+    color: blue; /* Change color on hover */
+}
 
 h1.center {
     text-align: center;

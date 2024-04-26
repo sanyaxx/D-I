@@ -2,13 +2,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('3.png') no-repeat right; 
+    background: url('3.png') no-repeat right bottom; /* Adjusted background */
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {
     display: flex;
-    height: 100vh;
+    flex-direction: row; 
+    min-height: 100vh;
+    
 }
 
 .sidebar {
@@ -36,7 +39,10 @@ body {
 
 .main-content {
     flex: 1;
+    overflow-y: auto;
     padding: 20px;
+    padding-bottom: 50px; 
+    
 }
 
 .header-icons {
@@ -113,3 +119,7 @@ button:hover {
 .back-icon:hover {
     color: #ccc;
 }
+/*.container::after {
+    content: "";
+    flex: 1;
+}*/

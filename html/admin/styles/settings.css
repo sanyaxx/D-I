@@ -23,7 +23,16 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centering content */
 }
-
+.back-icon {
+    position: absolute;
+    left: 20px; 
+    top: 20px; 
+    cursor: pointer;
+    color: #ffffff; 
+}
+.back-icon:hover {
+    color: blue; /* Change color on hover */
+}
 .header h1 {
     font-size: 24px;
     color: #333;
