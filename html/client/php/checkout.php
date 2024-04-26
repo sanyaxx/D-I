@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect to a success page or handle the response accordingly
     $orderID = $currentOrderID; // Assuming $currentOrderID contains the orderID
-    header("Location: checkstatus.php?orderID=$orderID");
+    header("Location: checkStatus.php?orderID=$orderID");
     exit();
     }
 ?>

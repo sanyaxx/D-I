@@ -8,25 +8,20 @@ if (!isset($orderID)) {
 }
 
 // Prepare and bind the SQL statement with a placeholder for the category
-$query = "SELECT 
-            status
-        FROM 
-            orders 
-        WHERE 
-            userID=? AND orderID=?
-        GROUP BY 
-            orders.orderID
-        ";
-
+$query = "SELECT status FROM orders WHERE userID=? AND orderID=? GROUP BY orders.orderID";
 $stmt = $connection->prepare($query);
-$status = 'Pending';
 $stmt->bind_param("ii", $_SESSION['userID'], $orderID);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    echo $row['status'];
+    if ($row["status"] === "Accepted") {
+        header("Location: ../html/checkoutSuccess.html");  
+    }
+    elseif ($row["status"] === "Declined") {
+        header("Location: ../html/checkoutfailed.html?orderID=$orderID");  
+    }
 } else {
     echo "Processing";
 }

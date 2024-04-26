@@ -28,11 +28,22 @@
                     <td><?= $row['date'] ?></td>
                     <td>
                         <select name="status" onchange="updateOrderStatus(this, <?= $row['userID'] ?>, <?= $row['orderID'] ?>)">
-                            <option value="" disabled <?= ($row['status'] === '') ? 'selected' : '' ?>>Select</option>
-                            <?php foreach (["Pending", "Accepted", "In the Kitchen", "Dispatched", "Completed", "Declined"] as $status): ?>
-                                <option value="<?= $status ?>" <?= ($status === $row['status']) ? 'selected' : '' ?>><?= ucfirst($status) ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                            <option value="" <?= ($row['status'] === '') ? 'selected' : '' ?> disabled>Select</option>
+                            <?php if ($row['status'] === "Pending"): ?>    
+                                <option value="Pending">Pending</option>
+                                <?php foreach (["Accepted", "Declined"] as $status): ?>
+                                    <option value="<?= $status ?>"><?= ucfirst($status) ?></option>
+                                <?php endforeach; ?>
+                            <?php elseif ($row['status'] === 'Declined'): ?>
+                                <option value="Declined" selected disabled>Declined</option>
+                            <?php elseif ($row['status'] === 'Completed'): ?>
+                                <option value="Completed" selected disabled>Completed</option>
+                            <?php else: ?>
+                                <?php foreach (["Accepted", "In the Kitchen", "Dispatched", "Completed", "Declined"] as $status): ?>
+                                    <option value="<?= $status ?>" <?= ($status === $row['status']) ? 'selected' : '' ?>><?= ucfirst($status) ?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>                          
+                        </select>                                                                                          
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -64,6 +75,23 @@
                 }
             };
             xhr.send('userID=' + userID + '&orderID=' + orderID + '&status=' + newStatus);
+
+            // Send AJAX request to updateStatus.php or declineOrder.php based on the selected status
+            if (newStatus === "Declined") {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '../php/declineOrder.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            console.log("Order declined. Stock updated.");
+                        } else {
+                            console.error('Error declining order');
+                        }
+                    }
+                };
+                xhr.send('orderID=' + orderID);
+            }
         }
     </script>
 </body>

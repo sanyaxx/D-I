@@ -16,7 +16,8 @@
   </div>
 
   <div style="text-align: center;">
-    <h2>Your order is being processed</h2>
+    <h2>Kindly wait for your order to be accepted.</h2>
+    <h3>Please keep refreshing your page.</h3>
     <div class="loading-icon">
         <!--<i class="fas fa-spinner fa-spin"></i>   normal loading-->
         <i class="fas fa-pizza-slice fa-spin" style="font-size: 48px; color: #eb792d;"></i> 
@@ -26,28 +27,30 @@
 </body>
 </html>
 
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function() {
-      // Function to check the status every 1 second
-      function checkStatus() {
-          $.ajax({
-              url: '../php/checkStatus.php',
-              type: 'GET',
-              success: function(response) {
-                  if (response === 'Accepted' || response === 'In the Kitchen' || response === 'Dispatched' || response === 'Completed') {
-                      window.location.href = 'checkoutSuccess.html';
-                  } else if (response === 'Declined') {
-                      window.location.href = 'checkoutfailed.html';
-                  }
-              }
-          });
-      }
-
-      // Check the status initially
-      checkStatus();
-
-      // Check the status every 1 second
-      setInterval(checkStatus, 1000);
-  });
+    $(document).ready(function() {
+        // Function to check the status every 1 second
+        function checkStatus() {
+            $.ajax({
+                url: '../php/checkStatus.php?',
+                type: 'GET',
+                dataType: 'json', // Specify JSON as the expected data type
+                error: function(xhr, status, error) {
+                
+                // Handle any errors here
+                console.error('Error checking status:', error);
+                }
+            });
+        }
+    
+        // Check the status initially
+        checkStatus();
+    
+        // Check the status every 1 second
+        setInterval(checkStatus, 1000);
+    });
+        
 </script>
