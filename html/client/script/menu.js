@@ -1,7 +1,6 @@
 // Include functions.js
 document.write('<script src="functions.js"></script>');
 
-
 // code to update visibility of quantity elements based on initial value
 const quantityInputs = document.querySelectorAll('.quantity input[type="text"]');
 quantityInputs.forEach(input => {
@@ -48,15 +47,14 @@ function increment(button, itemID, maxQuantity) {
                 cartIcon.classList.remove('pulse');
             }, 1000);
 
-            // Increase cart counter
-            document.querySelector("#cart-counter").value = updateCartCounter;
-
             // Send itemID and quantity to cart.php via AJAX
             updateCartOnServer(itemID, input.value);
-            }
+
+            // Increase cart counter
+            document.querySelector("#cart-counter").value = updateCartCounter();
+        }
     }
 }
-
 
 
 function decrement(button, itemID) {
@@ -80,11 +78,11 @@ function decrement(button, itemID) {
         input.style.display = 'none';
     }
 
-    // Decrease cart counter
-    document.querySelector("#cart-counter").value = updateCartCounter;
-
     // Send itemID and quantity to cart.php via AJAX
     updateCartOnServer(itemID, input.value);
+
+    // Increase cart counter
+    document.querySelector("#cart-counter").value = updateCartCounter();
 }
 
 

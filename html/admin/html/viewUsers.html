@@ -70,78 +70,81 @@
     </div>
 
     <script>
-// Function to go back
-function goBack(){
-    window.location.href = "../html/Restauranthome.html";
-}
-
-// Get filter button and filter criteria
-const filterButton = document.getElementById('filterButton');
-const filterCriteria = document.getElementById('filterCriteria');
-
-// Get the table element
-const table = document.getElementById('userTable');
-
-// Get the table rows
-const tableRows = document.querySelectorAll('#userTable tbody tr');
-
-// Add event listeners to filter button and clear filter button
-filterButton.addEventListener('click', toggleFilterCriteria);
-document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
-
-// Add event listeners to filter fields for filtering
-document.querySelectorAll('#filterCriteria input').forEach(input => {
-    input.addEventListener('input', filterTable);
-});
-
-function toggleFilterCriteria() {
-    console.log('Filter button clicked');
-    if (filterCriteria.style.display === 'none') {
-        filterCriteria.style.display = 'block';
-    } else {
-        filterCriteria.style.display = 'none';
-        // Reset the table position
-        table.style.marginTop = '0';
-    }
-}
-
-function filterTable() {
-    const filterValues = {
-        userID: filterUserID.value.toLowerCase(),
-        username: filterUsername.value.toLowerCase(),
-        email: filterEmail.value.toLowerCase(),
-        phone: filterPhone.value.toLowerCase()
-    };
-
-    // Loop through all table rows
-    tableRows.forEach(row => {
-        const rowValues = {
-            userID: row.cells[0].textContent.toLowerCase(),
-            username: row.cells[1].textContent.toLowerCase(),
-            email: row.cells[4].textContent.toLowerCase(),
-            phone: row.cells[5].textContent.toLowerCase()
-        };
-
-        // Hide the row if it doesn't match the filter criteria
-        if (Object.keys(filterValues).every(key => rowValues[key].includes(filterValues[key]))) {
-            row.style.display = '';
-        } else {
-            row.style.display = 'none';
+        // Function to go back
+        function goBack(){
+            window.location.href = "../html/Restauranthome.html";
         }
-    });
-}
 
-function clearFilters() {
-    filterUserID.value = '';
-    filterUsername.value = '';
-    filterEmail.value = '';
-    filterPhone.value = '';
+        // Get filter button and filter criteria
+        const filterButton = document.getElementById('filterButton');
+        const filterCriteria = document.getElementById('filterCriteria');
 
-    // Show all table rows
-    tableRows.forEach(row => {
-        row.style.display = '';
-    });
-}
+        // Get the table element
+        const table = document.getElementById('userTable');
+
+        // Get the table rows
+        const tableRows = document.querySelectorAll('#userTable tbody tr');
+
+        // Add event listeners to filter button and clear filter button
+        filterButton.addEventListener('click', toggleFilterCriteria);
+        document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
+
+        // Add event listeners to filter fields for filtering
+        document.querySelectorAll('#filterCriteria input').forEach(input => {
+            input.addEventListener('input', filterTable);
+        });
+
+        function toggleFilterCriteria() {
+            console.log('Filter button clicked');
+            if (filterCriteria.style.display === 'none') {
+                filterCriteria.style.display = 'block';
+            } else {
+                filterCriteria.style.display = 'none';
+                // Reset the table position
+                table.style.marginTop = '0';
+            }
+        }
+
+        function filterTable() {
+            const filterValues = {
+                userID: filterUserID.value.toLowerCase(),
+                username: filterUsername.value.toLowerCase(),
+                email: filterEmail.value.toLowerCase(),
+                phone: filterPhone.value.toLowerCase()
+            };
+
+            // Loop through all table rows
+            tableRows.forEach(row => {
+                const rowValues = {
+                    userID: row.cells[0].textContent.toLowerCase(),
+                    username: row.cells[1].textContent.toLowerCase(),
+                    email: row.cells[4].textContent.toLowerCase(),
+                    phone: row.cells[5].textContent.toLowerCase()
+                };
+
+                // Hide the row if it doesn't match the filter criteria
+                if (Object.keys(filterValues).every(key => rowValues[key].includes(filterValues[key]))) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function clearFilters() {
+            filterUserID.value = '';
+            filterUsername.value = '';
+            filterEmail.value = '';
+            filterPhone.value = '';
+
+            // Show all table rows
+            tableRows.forEach(row => {
+                row.style.display = '';
+            });
+        }
     </script>
+
+    <script src="../script/functions.js"></script>
 </body>
 </html>
+
