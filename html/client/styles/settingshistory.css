@@ -40,8 +40,20 @@ body {
 
 .main-content {
     flex-grow: 1;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Hide overflow from children */
 }
+
+.history-info {
+    flex-grow: 1;
+    padding: 10px; /* Add padding on all sides */
+    margin: 0;
+    overflow-y: auto;
+}
+
+
+
 
 .tab {
     display: none;
@@ -62,7 +74,7 @@ p {
 #tabContent {
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding:10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,15 +88,12 @@ p {
     line-height: 1.5;
 }
 
-/* Table styling */
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    margin-left: 20px; /* Adjust the left margin to move the table to the right */
-    margin-right: 20px; /* Add space from the right */
+    margin-top: 0;
+    margin: 0 auto;
+    width: 100%; /* Ensure table fills the entire width of .history-info */
 }
-
 
 th {
     background-color: #254636;
@@ -106,7 +115,3 @@ tr:hover {
     background-color: #ddd;
 }
 
-.history-info {
-    max-height: 400px;
-    overflow-y: auto;
- }

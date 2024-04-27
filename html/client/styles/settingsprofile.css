@@ -9,6 +9,10 @@ body {
     display: flex;
     height: 100vh;
 }
+.back-icon:hover {
+    color: #1e90ff; /* Change color on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
 
 .sidebar {
     width: 200px;
