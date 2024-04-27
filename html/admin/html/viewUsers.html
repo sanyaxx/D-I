@@ -97,19 +97,11 @@ function toggleFilterCriteria() {
     console.log('Filter button clicked');
     if (filterCriteria.style.display === 'none') {
         filterCriteria.style.display = 'block';
-        adjustTablePosition();
     } else {
         filterCriteria.style.display = 'none';
         // Reset the table position
         table.style.marginTop = '0';
     }
-}
-
-function adjustTablePosition() {
-    // Calculate the height of the filter dropdown
-    const filterDropdownHeight = filterCriteria.offsetHeight;
-    // Move the table down by the height of the filter dropdown
-    table.style.marginTop = filterDropdownHeight + 'px';
 }
 
 function filterTable() {

@@ -13,15 +13,23 @@
 <body>
   <div class="background">
     <div class="container">
+      <div class="header-icons">
+        <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
+        <i class="fas fa-cog" id="settings" onclick="goSettings()"></i>
+      </div>
+      <div>
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+      </div>
+
       <h2>Cart</h2>
       <?php if (isset($rows) && count($rows) > 0): ?>
       <table class="cart-items">
         <thead>
           <tr>
             <th class="item-icon"></th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th style="text-align: left;">Name</th>
+            <th style="text-align: left;">Quantity</th>
+            <th style="text-align: right;">Price</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +54,7 @@
                 <!-- <p class="error-message" style="display: none;">Max quantity reached!</p> -->
               </div>
             </td>
-            <td class="item-details"><?= $row['price'] ?></td>
+            <td class="item-details">RM <?= $row['price'] ?></td>
           </tr>
           <?php endif; ?>
           <?php endforeach; ?>
