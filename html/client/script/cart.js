@@ -33,11 +33,11 @@ function increment(button, itemID, stock) {
         // Increment the quantity by one
         inputField.value = currentQuantity + 1;
         
-        // Increase cart counter
-        document.querySelector("#cart-counter").value = updateCartCounter;
-        
         // Call the function to update the cart on the server
         updateCartOnServer(itemID, inputField.value);
+
+        // Increase cart counter
+        document.querySelector("#cart-counter").value = updateCartCounter;
         
         // Reload the page to reflect the updated quantity in the cart
         location.reload();
@@ -58,11 +58,12 @@ function decrement(button, itemID) {
     if (currentQuantity > 0) {
         // Increment the quantity by one
         inputField.value = currentQuantity - 1;
-        // Increase cart counter
-        document.querySelector("#cart-counter").value = updateCartCounter;
     } 
     // Call the function to update the cart on the server
     updateCartOnServer(itemID, inputField.value);
+
+    // Increase cart counter
+    document.querySelector("#cart-counter").value = updateCartCounter;
         
     // Reload the page to reflect the updated quantity in the cart
     location.reload();
