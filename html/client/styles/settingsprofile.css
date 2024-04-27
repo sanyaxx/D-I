@@ -3,12 +3,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #353131;
+    background-color: #ffffff;
 }
 
 .container {
     display: flex;
     height: 100vh;
+    
 }
 
 .back-icon:hover {
@@ -38,13 +39,14 @@ body {
 }
 
 .sidebar .option.active-option {
-    background-color: #444;
+    background-color: #17a842;
 }
 
-/* Main Content Styles */
 .main-content {
     flex-grow: 1;
     padding: 20px;
+    background:#ffffff;
+    margin-left: 20px;
 }
 
 h2 {
@@ -53,35 +55,24 @@ h2 {
     margin-bottom: 20px;
 }
 
-.profile-text p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
 
-#tabContent {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Profile Form Styles */
 .profile-info {
     margin-bottom: 30px;
 }
 
-.profile-options input[type="text"],
-.profile-options input[type="email"],
-.profile-options input[type="tel"] {
-    width: 100%;
+.profile-text input[type="text"],
+.profile-text input[type="email"],
+.profile-text input[type="tel"] {
+    width: calc(100% - 22px); /* Adjust width minus padding and borders */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-.profile-options button {
-    background-color: #007bff;
+.profile-text button {
+    margin-top:20px;
+    background-color: #15792d; /* Green color for update button */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -89,8 +80,9 @@ h2 {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
 }
 
-.profile-options button:hover {
-    background-color: #0056b3;
+.profile-text button:hover {
+    background-color: #073e13; /* Darker shade of green on hover */
 }
