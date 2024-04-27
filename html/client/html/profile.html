@@ -20,15 +20,6 @@
         
         
 
-        <!-- Edit modal
-        <div id="editModal" class="modal-background" display="none">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <input type="text" class="modal-input">
-                <button class="confirm-button">Confirm</button>
-            </div>
-        </div> -->
-
         <div class="sidebar">
             <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
             <div class="option" onclick="goProfile()">Profile</div>
@@ -48,9 +39,25 @@
                     <!-- Profile Information -->
                     <div class="profile-text">
                         <h2>Profile Information</h2>
-                        <p><strong>Username: </strong><?php echo $profileRows[0]['username']; ?></p>
-                        <p><strong>Name: </strong><span id="profile-name" class="editable-field" contenteditable="false"><?php echo $profileRows[0]['name']; ?></span> <i class="fas fa-edit edit-icon" data-field="name"></i></p>
-                        <p><strong>Email: </strong><span id="profile-email" class="editable-field" contenteditable="false"><?php echo $profileRows[0]['email']; ?></span> <i class="fas fa-edit edit-icon" data-field="email"></i></p>
+                        <table>
+                            <tr>
+                                <td><strong>Name: </strong></td>
+                                <td><input type="text" id="name" value="<?= $profileRows[0]['name'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email: </strong></td>
+                                <td><input type="email" id="email" value="<?= $profileRows[0]['email'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phone No (+60): </strong></td>
+                                <td><input type="tel" id="phone" value="<?= $profileRows[0]['phone'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <td><button onclick="updateProfile()">Update</button></td>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -71,4 +78,49 @@
     function goHistory() {
         window.location.href = "../php/history.php";
     }
+
+    function updateProfile() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+    
+        // Check if any of the variables are empty
+        if (name === '' || email === '' || phone === '') {
+            alert("Name, email, and phone cannot be empty.");
+            return;
+        }
+    
+        // Check if phone has at least 10 digits
+        if (phone.length < 9) {
+            alert("Phone number must be at least 9 digits.");
+            return;
+        }
+    
+        // Prepare data to be sent
+        var data = {
+            name: name,
+            email: email,
+            phone: phone,
+        };
+    
+        // Send AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "../php/updateProfile.php", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // If successful, reload the page
+                    window.location.reload();
+                    alert('Details updated successfully!');
+                } else {
+                    // Handle error
+                    console.error('Error:', xhr.responseText);
+                    alert('Failed to update details!');
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+    }
+    
 </script>

@@ -18,6 +18,11 @@
         <i class="fas fa-utensils"></i>
         <button class="button hover" onclick="update_menu()">Update Menu</button>
       </div>
+
+      <div class="management-option">
+        <i class="fas fa-plus"></i>
+        <button class="button hover" onclick="addItem()">Add Item to Menu</button>
+      </div>
       
       <div class="management-option">
         <div class="icon-container">
@@ -50,6 +55,11 @@
   function update_menu() {
     // Implement functionality for updating dishes
     window.location.href = "../php/appetizer.php"
+  }
+
+  function addItem() {
+    // Implement functionality for updating dishes
+    window.location.href = "add_items.html"
   }
 
   function orderHistory() {

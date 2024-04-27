@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order History - Admin Dashboard</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link rel="stylesheet" href="../styles/orderHistory.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../styles/orderHistory.css">
+</head>
     
 <body>
     <div class="container">
@@ -14,99 +14,192 @@
             <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i> <!-- Back icon -->
            
             <h1>Order History</h1>
-       
-        <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>User ID</th>
-                    <th>Details</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($rows as $row): ?>
-                <tr>
-                    <td><?= $row['orderID'] ?></td>
-                    <td><?= $row['userID'] ?></td>
-                    <td><button class="details-btn" onclick="redirectToDetails(<?= $row['userID'] ?>, <?= $row['orderID'] ?>)">More Details</button></td>
-                    <td><?= $row['date'] ?></td>
-                    <td>
-                        <select name="status" onchange="updateOrderStatus(this, <?= $row['userID'] ?>, <?= $row['orderID'] ?>)">
-                            <option value="" <?= ($row['status'] === '') ? 'selected' : '' ?> disabled>Select</option>
-                            <?php if ($row['status'] === "Pending"): ?>    
-                                <option value="Pending">Pending</option>
-                                <?php foreach (["Accepted", "Declined"] as $status): ?>
-                                    <option value="<?= $status ?>"><?= ucfirst($status) ?></option>
-                                <?php endforeach; ?>
-                            <?php elseif ($row['status'] === 'Declined'): ?>
-                                <option value="Declined" selected disabled>Declined</option>
-                            <?php elseif ($row['status'] === 'Completed'): ?>
-                                <option value="Completed" selected disabled>Completed</option>
-                            <?php else: ?>
-                                <?php foreach (["Accepted", "In the Kitchen", "Dispatched", "Completed", "Declined"] as $status): ?>
-                                    <option value="<?= $status ?>" <?= ($status === $row['status']) ? 'selected' : '' ?>><?= ucfirst($status) ?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>                          
-                        </select>                                                                                          
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>            
-        </table>
+
+                <!-- Filter Button -->
+            <button id="filterButton">Filter</button>
+
+            <!-- Filter Criteria -->
+            <div id="filterCriteria" style="display: none;">
+                <div>
+                    <label for="filterUserID">OrderID:</label>
+                    <input type="text" id="filterOrderID">
+                    
+                    <label for="filterUsername">UserID:</label>
+                    <input type="text" id="filterUserID">
+                    
+                    <label for="filterEmail">Date:</label>
+                    <input type="text" id="filterDate">
+                    
+                    <label for="filterPhone">Status:</label>
+                    <input type="text" id="filterStatus">
+                </div>
+                <button id="clearFilterButton">Clear Filter</button>
+            </div>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>User ID</th>
+                        <th>Details</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($rows as $row): ?>
+                    <tr>
+                        <td><?= $row['orderID'] ?></td>
+                        <td><?= $row['userID'] ?></td>
+                        <td><button class="details-btn" onclick="redirectToDetails(<?= $row['userID'] ?>, <?= $row['orderID'] ?>)">More Details</button></td>
+                        <td><?= $row['date'] ?></td>
+                        <td>
+                            <select name="status" onchange="updateOrderStatus(this, <?= $row['userID'] ?>, <?= $row['orderID'] ?>)">
+                                <option value="" <?= ($row['status'] === '') ? 'selected' : '' ?> disabled>Select</option>
+                                <?php if ($row['status'] === "Pending"): ?>    
+                                    <option value="Pending">Pending</option>
+                                    <?php foreach (["Accepted", "Declined"] as $status): ?>
+                                        <option value="<?= $status ?>"><?= ucfirst($status) ?></option>
+                                    <?php endforeach; ?>
+                                <?php elseif ($row['status'] === 'Declined'): ?>
+                                    <option value="Declined" selected disabled>Declined</option>
+                                <?php elseif ($row['status'] === 'Completed'): ?>
+                                    <option value="Completed" selected disabled>Completed</option>
+                                <?php else: ?>
+                                    <?php foreach (["Accepted", "In the Kitchen", "Dispatched", "Completed", "Declined"] as $status): ?>
+                                        <option value="<?= $status ?>" <?= ($status === $row['status']) ? 'selected' : '' ?>><?= ucfirst($status) ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>                          
+                            </select>                                                                                          
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>            
+            </table>
+        </div>
     </div>
+</body>
+</html>
 
-    <script>
-        function redirectToDetails(userID, orderID) {
-            window.location.href = "../php/getOrderDetails.php?userID=" + userID + "&orderID=" + orderID;
-        }
+<script>
+    function redirectToDetails(userID, orderID) {
+        window.location.href = "../php/getOrderDetails.php?userID=" + userID + "&orderID=" + orderID;
+    }
 
-        function updateOrderStatus(selectElement, userID, orderID) {
-            const newStatus = selectElement.value;
-            
-            // Send AJAX request to updateStatus.php
+    function updateOrderStatus(selectElement, userID, orderID) {
+        const newStatus = selectElement.value;
+        
+        // Send AJAX request to updateStatus.php
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '../php/updateStatus.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Reload the page upon successful update
+                    window.location.reload();
+                    alert("Item status updated!");
+                } else {
+                    console.error('Error updating order status');
+                }
+            }
+        };
+        xhr.send('userID=' + userID + '&orderID=' + orderID + '&status=' + newStatus);
+
+        // Send AJAX request to updateStatus.php or declineOrder.php based on the selected status
+        if (newStatus === "Declined") {
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', '../php/updateStatus.php', true);
+            xhr.open('POST', '../php/declineOrder.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        // Reload the page upon successful update
-                        window.location.reload();
-                        alert("Item status updated!");
+                        console.log("Order declined. Stock updated.");
                     } else {
-                        console.error('Error updating order status');
+                        console.error('Error declining order');
                     }
                 }
             };
-            xhr.send('userID=' + userID + '&orderID=' + orderID + '&status=' + newStatus);
-
-            // Send AJAX request to updateStatus.php or declineOrder.php based on the selected status
-            if (newStatus === "Declined") {
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', '../php/declineOrder.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            console.log("Order declined. Stock updated.");
-                        } else {
-                            console.error('Error declining order');
-                        }
-                    }
-                };
-                xhr.send('orderID=' + orderID);
-            }
+            xhr.send('orderID=' + orderID);
         }
-    </script>
-</body>
-</html>
+    }
+</script>
 
 <script>
     function goBack(){
         window.location.href = "../html/Restauranthome.html";
     }
 </script>
+
+<script>
+    // Get filter button and filter criteria
+    const filterButton = document.getElementById('filterButton');
+    const filterCriteria = document.getElementById('filterCriteria');
+    
+    // Get all input fields
+    const filterUserID = document.getElementById('filterUserID');
+    const filterOrderID = document.getElementById('filterOrderID');
+    const filterDate = document.getElementById('filterDate');
+    const filterStatus = document.getElementById('filterStatus');
+    
+    // Get the table rows
+    const tableRows = document.querySelectorAll('table tbody tr');
+
+    // Add event listeners to filter button and clear filter button
+    filterButton.addEventListener('click', toggleFilterCriteria);
+    document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
+    
+    // Add event listeners to filter fields for filtering
+    filterUserID.addEventListener('input', filterTable);
+    filterOrderID.addEventListener('input', filterTable);
+    filterDate.addEventListener('input', filterTable);
+    filterStatus.addEventListener('input', filterTable);
+    
+    function toggleFilterCriteria() {
+        if (filterCriteria.style.display === 'none') {
+            filterCriteria.style.display = 'block';
+        } else {
+            filterCriteria.style.display = 'none';
+        }
+    }
+    
+    function filterTable() {
+        const userIDFilter = filterUserID.value.trim().toLowerCase();
+        const orderIDFilter = filterOrderID.value.trim().toLowerCase();
+        const dateFilter = filterDate.value.trim().toLowerCase();
+        const statusFilter = filterStatus.value.trim().toLowerCase();
+        
+        // Loop through all table rows
+        tableRows.forEach(row => {
+            const userID = row.cells[1].textContent.trim().toLowerCase();
+            const orderID = row.cells[0].textContent.trim().toLowerCase();
+            const date = row.cells[3].textContent.trim().toLowerCase();
+            const status = row.cells[4].querySelector('select').value.trim().toLowerCase(); // Get the status from the select element
+            
+            // Hide the row if it doesn't match the filter criteria
+            if (userID.includes(userIDFilter) && 
+                orderID.includes(orderIDFilter) &&
+                date.includes(dateFilter) &&
+                status.includes(statusFilter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }    
+    
+    function clearFilters() {
+        filterUserID.value = '';
+        filterOrderID.value = '';
+        filterDate.value = '';
+        filterStatus.value = '';
+        
+        // Show all table rows
+        tableRows.forEach(row => {
+            row.style.display = '';
+        });
+    }
+</script>
+
 
 

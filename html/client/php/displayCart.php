@@ -23,6 +23,8 @@ if ($outOfStockResult->num_rows > 0) {
     // Loop through each row of data and add it to the out of stock items array
     while($outOfStockitem = $outOfStockResult->fetch_assoc()) {
         $outOfStockitems[] = $outOfStockitem;
+        // Fetch the quantity for out of stock items
+        fetchCartQty($outOfStockitem);
     }
 }
 
@@ -38,15 +40,36 @@ if ($inStockResult->num_rows > 0) {
     // Loop through each row of data and add it to the in stock items array
     while($row = $inStockResult->fetch_assoc()) {
         $rows[] = $row;
+        // Fetch the quantity for in stock items
+        fetchCartQty($row);
     }
 }
-
-// Include fetch quantity from cart
-require_once("fetchCartQty.php");
 
 // Close the database connection
 mysqli_close($connection);
 
 // Now, include the HTML content from the cart.html file
 include("../html/cart.html");
+
+// Function to fetch cart quantity
+function fetchCartQty($item) {
+    global $connection, $_SESSION, $cartRows;
+    // Fetch the quantity from the cart table for the current user and item
+    $quantityQuery = "SELECT quantity FROM cart WHERE userID = ? AND itemID = ?";
+    $quantityStmt = $connection->prepare($quantityQuery);
+    $quantityStmt->bind_param("ii", $_SESSION['userID'], $item['itemID']);
+    $quantityStmt->execute();
+    $quantityResult = $quantityStmt->get_result();
+
+    // Initialize the quantity to 0 by default
+    $quantity = 0;
+
+    // If a row is fetched, update the quantity
+    if ($quantityRow = $quantityResult->fetch_assoc()) {
+        $quantity = $quantityRow['quantity'];
+    }
+
+    // Add the itemID and quantity to the cartRows array
+    $cartRows[$item['itemID']] = $quantity;
+}
 ?>
