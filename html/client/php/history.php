@@ -32,23 +32,19 @@ $stmt->bind_param("s", $_SESSION['userID']);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Check if there are rows in the result
-if ($result->num_rows > 0) {
-    // Initialize an array to store the rows
-    $historyRows = array();
 
-    // Loop through each row of data
-    while($historyRow = $result->fetch_assoc()) {
-        // Add the row to the array
-        $historyRows[] = $historyRow;
-    }
+// Initialize an array to store the rows
+$historyRows = array();
 
-    // Close the database connection
-    mysqli_close($connection);
-
-    // Now, include the HTML content from the history.html file
-    include("../html/history.html");
-
-} else {
-    echo "0 results";
+// Loop through each row of data
+while($historyRow = $result->fetch_assoc()) {
+    // Add the row to the array
+    $historyRows[] = $historyRow;
 }
+
+// Close the database connection
+mysqli_close($connection);
+
+// Now, include the HTML content from the history.html file
+include("../html/history.html");
+
