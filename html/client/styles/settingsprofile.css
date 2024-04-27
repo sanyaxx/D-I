@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -9,11 +10,13 @@ body {
     display: flex;
     height: 100vh;
 }
+
 .back-icon:hover {
-    color: #1e90ff; /* Change color on hover */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    color: #1e90ff;
+    cursor: pointer;
 }
 
+/* Sidebar Styles */
 .sidebar {
     width: 200px;
     background-color: #254636;
@@ -27,6 +30,7 @@ body {
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 16px;
 }
 
 .sidebar .option:hover {
@@ -37,84 +41,56 @@ body {
     background-color: #444;
 }
 
+/* Main Content Styles */
 .main-content {
     flex-grow: 1;
     padding: 20px;
 }
 
-.tab {
-    display: none;
-}
-
-.tab.active {
-    display: block;
-}
-
 h2 {
     color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-p {
-    color: #555;
+.profile-text p {
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 #tabContent {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-#tabContent h2 {
-    color: #333;
+/* Profile Form Styles */
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-options input[type="text"],
+.profile-options input[type="email"],
+.profile-options input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
-#tabContent p {
-    color: #555;
-    line-height: 1.5;
-}
-
-.profile-options input[type="file"]::-webkit-file-upload-button {
-    background-color: #3b793d;
-    color: white;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
-}
-
-.profile-options input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #45a049;
-}
-
-.profile-options {
-    margin-top: 20px; /* Add margin to the top */
-    margin-bottom: 30px; /* Add margin to the bottom */
-}
-
-.profile-text p {
-    margin-bottom: 10px; /* Add margin between paragraphs */
-}
-
-.edit-button {
+.profile-options button {
     background-color: #007bff;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     transition: background-color 0.3s;
 }
 
-.edit-button:hover {
+.profile-options button:hover {
     background-color: #0056b3;
 }
-
-.save-button {
-    background-color: #28a745;
-}
-
-
-
