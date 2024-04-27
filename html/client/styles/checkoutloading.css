@@ -3,7 +3,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url('3.png'); 
+    background-image: url('../../images/3.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 

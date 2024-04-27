@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('3.png') no-repeat right bottom; /* Adjusted background */
+    background: url('../../images/3.png') no-repeat right bottom; /* Adjusted background */
     background-size: cover;
     background-attachment: fixed;
 }

@@ -49,11 +49,8 @@ body {
     flex-grow: 1;
     padding: 10px; /* Add padding on all sides */
     margin: 0;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
-
-
-
 
 .tab {
     display: none;
@@ -93,6 +90,7 @@ table {
     margin-top: 0;
     margin: 0 auto;
     width: 100%; /* Ensure table fills the entire width of .history-info */
+    height: 100%;
 }
 
 th {
