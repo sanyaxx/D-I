@@ -5,21 +5,30 @@ body {
     font-family: Arial, sans-serif;
 }
 
-@keyframes fadeInOut {
+@keyframes fadeInPulseOut {
     0% {
-        opacity: 0; /* Start with opacity 0 (fade-in effect) */
-        background-color: #0a3b08; /* Start with initial background color */
+        opacity: 0; /* Start with opacity 0 (hidden) */
     }
-    10% {
+    20% {
         opacity: 1; /* Quickly fade in to full opacity */
     }
-    90% {
+    80% {
         opacity: 1; /* Stay fully opaque for most of the animation */
-        background-color: #0a3b08; /* Change background color to desired color */
     }
     100% {
-        opacity: 0; /* End with opacity 0 (fade-out effect) */
-        background-color: #0a3b08; /* Keep final background color */
+        opacity: 0; /* End with opacity 0 (hidden) */
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Start with normal size */
+    }
+    50% {
+        transform: scale(1.1); /* Scale up to 110% */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
     }
 }
 
@@ -32,11 +41,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeInOut 2s ease forwards; /* Apply the fadeInOut animation for 2 seconds */
+    animation: fadeInPulseOut 4s ease forwards;
 }
 
 #splash-screen img {
-    width: 100%; /* Stretch the image horizontally to cover the screen */
-    height: 100%; /* Stretch the image vertically to cover the screen */
+    width: 100%; /* Ensure the image covers the entire width of the screen */
+    height: 100%; /* Ensure the image covers the entire height of the screen */
     object-fit: cover; /* Maintain aspect ratio while covering the entire area */
+    animation: pulse 2s ease infinite; /* Apply the pulse animation infinitely */
 }
