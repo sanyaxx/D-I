@@ -13,62 +13,53 @@
 <body>
   <div class="background">
     <div class="container">
-      <div class="header-icons">
-        <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
-        <i class="fas fa-cog" id="settings" onclick="goSettings()"></i>
-      </div>
-      <div class="back-button">
-        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
-      </div>
-
+      <h2>Cart</h2>
       <?php if (isset($rows) && count($rows) > 0): ?>
-        <h2>Cart</h2>
-        <table class="cart-items">
-          <thead>
-            <tr>
-              <th class="item-icon"></th>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php 
-            $total = 0; // Initialize total variable
-        
-            foreach ($rows as $row):
-                if ($row['quantity'] <= $row['stock']):
-                    $subtotal = $row['quantity'] * $row['price']; // Calculate subtotal for each item
-                    $total += $subtotal; // Add subtotal to total
-            ?>
-              <tr class="cart-item">
-                <td class="item-icon">
-                  <img src="../../images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
-                </td>
-                <td class="item-details"><?= $row['name'] ?></td>
-                <td class="item-details">
-                  <!-- Quantity changing bar with plus and minus buttons -->
-                  <div class="quantity-bar">
-                    <button class="minus" onclick="decrement(this, <?= $row['itemID'] ?>)">-</button>
-                    <input type="text" value="<?= $cartRows[$row['itemID']] ?>" max="<?= $row['stock'] ?>" readonly style="display: block;">
-                    <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock']?>)">+</button>
-                    <!-- <p class="error-message" style="display: none;">Max quantity reached!</p> -->
-                  </div>
-                </td>
-                <td class="item-details"><?= $row['price'] ?></td>
-              </tr>
-            <?php endif; ?>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
+      <table class="cart-items">
+        <thead>
+          <tr>
+            <th class="item-icon"></th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+          $total = 0; // Initialize total variable
+          foreach ($rows as $row):
+            if ($row['quantity'] <= $row['stock']):
+              $subtotal = $row['quantity'] * $row['price']; // Calculate subtotal for each item
+              $total += $subtotal; // Add subtotal to total
+          ?>
+          <tr class="cart-item">
+            <td class="item-icon">
+              <img src="../../images/<?= $row['img'] ?>" alt="<?= $row['name'] ?>">
+            </td>
+            <td class="item-details"><?= $row['name'] ?></td>
+            <td class="item-details">
+              <!-- Quantity changing bar with plus and minus buttons -->
+              <div class="quantity-bar">
+                <button class="minus" onclick="decrement(this, <?= $row['itemID'] ?>)">-</button>
+                <input type="text" value="<?= $cartRows[$row['itemID']] ?>" max="<?= $row['stock'] ?>" readonly style="display: block;">
+                <button class="plus" onclick="increment(this, <?= $row['itemID'] ?>, <?= $row['stock']?>)">+</button>
+                <!-- <p class="error-message" style="display: none;">Max quantity reached!</p> -->
+              </div>
+            </td>
+            <td class="item-details"><?= $row['price'] ?></td>
+          </tr>
+          <?php endif; ?>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
 
-        <div class="total">
-          <p><b>Total: RM <?= $total ?></b></p>
-        </div>
+      <div class="total">
+        <p><b>Total: RM <?= $total ?></b></p>
+      </div>
 
-        <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+      <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
       <?php else: ?>
-        <p>Cart Empty!</p>
+      <p>Cart Empty!</p>
       <?php endif; ?>
 
       <!-- New table for out of stock items -->

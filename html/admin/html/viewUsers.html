@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Users</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../styles/viewUsers.css">
@@ -15,21 +16,26 @@
         
         <!-- Filter Button -->
         <button id="filterButton">Filter</button>
-
+    
         <!-- Filter Criteria -->
         <div id="filterCriteria" style="display: none;">
-            <div>
-                <label for="filterUserID">UserID:</label>
-                <input type="text" id="filterUserID">
-                
-                <label for="filterUsername">Username:</label>
-                <input type="text" id="filterUsername">
-                
-                <label for="filterEmail">Email:</label>
-                <input type="text" id="filterEmail">
-                
-                <label for="filterPhone">Contact No:</label>
-                <input type="text" id="filterPhone">
+            <div class="filter-options">
+                <div class="filter-option">
+                    <label for="filterUserID">UserID:</label>
+                    <input type="text" id="filterUserID">
+                </div>
+                <div class="filter-option">
+                    <label for="filterUsername">Username:</label>
+                    <input type="text" id="filterUsername">
+                </div>
+                <div class="filter-option">
+                    <label for="filterEmail">Email:</label>
+                    <input type="text" id="filterEmail">
+                </div>
+                <div class="filter-option">
+                    <label for="filterPhone">Contact No:</label>
+                    <input type="text" id="filterPhone">
+                </div>
             </div>
             <button id="clearFilterButton">Clear Filter</button>
         </div>
@@ -59,82 +65,90 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        
     </div>
 
     <script>
-        // Function to go back
-        function goBack(){
-            window.location.href = "../html/Restauranthome.html";
-        }
+// Function to go back
+function goBack(){
+    window.location.href = "../html/Restauranthome.html";
+}
 
-        // Get filter button and filter criteria
-        const filterButton = document.getElementById('filterButton');
-        const filterCriteria = document.getElementById('filterCriteria');
-        
-        // Get all input fields
-        const filterUserID = document.getElementById('filterUserID');
-        const filterUsername = document.getElementById('filterUsername');
-        const filterEmail = document.getElementById('filterEmail');
-        const filterPhone = document.getElementById('filterPhone');
-        
-        // Get the table rows
-        const tableRows = document.querySelectorAll('#userTable tbody tr');
+// Get filter button and filter criteria
+const filterButton = document.getElementById('filterButton');
+const filterCriteria = document.getElementById('filterCriteria');
 
-        // Add event listeners to filter button and clear filter button
-        filterButton.addEventListener('click', toggleFilterCriteria);
-        document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
-        
-        // Add event listeners to filter fields for filtering
-        filterUserID.addEventListener('input', filterTable);
-        filterUsername.addEventListener('input', filterTable);
-        filterEmail.addEventListener('input', filterTable);
-        filterPhone.addEventListener('input', filterTable);
-        
-        function toggleFilterCriteria() {
-            console.log('Filter button clicked');
-            if (filterCriteria.style.display === 'none') {
-                filterCriteria.style.display = 'block';
-            } else {
-                filterCriteria.style.display = 'none';
-            }
+// Get the table element
+const table = document.getElementById('userTable');
+
+// Get the table rows
+const tableRows = document.querySelectorAll('#userTable tbody tr');
+
+// Add event listeners to filter button and clear filter button
+filterButton.addEventListener('click', toggleFilterCriteria);
+document.getElementById('clearFilterButton').addEventListener('click', clearFilters);
+
+// Add event listeners to filter fields for filtering
+document.querySelectorAll('#filterCriteria input').forEach(input => {
+    input.addEventListener('input', filterTable);
+});
+
+function toggleFilterCriteria() {
+    console.log('Filter button clicked');
+    if (filterCriteria.style.display === 'none') {
+        filterCriteria.style.display = 'block';
+        adjustTablePosition();
+    } else {
+        filterCriteria.style.display = 'none';
+        // Reset the table position
+        table.style.marginTop = '0';
+    }
+}
+
+function adjustTablePosition() {
+    // Calculate the height of the filter dropdown
+    const filterDropdownHeight = filterCriteria.offsetHeight;
+    // Move the table down by the height of the filter dropdown
+    table.style.marginTop = filterDropdownHeight + 'px';
+}
+
+function filterTable() {
+    const filterValues = {
+        userID: filterUserID.value.toLowerCase(),
+        username: filterUsername.value.toLowerCase(),
+        email: filterEmail.value.toLowerCase(),
+        phone: filterPhone.value.toLowerCase()
+    };
+
+    // Loop through all table rows
+    tableRows.forEach(row => {
+        const rowValues = {
+            userID: row.cells[0].textContent.toLowerCase(),
+            username: row.cells[1].textContent.toLowerCase(),
+            email: row.cells[4].textContent.toLowerCase(),
+            phone: row.cells[5].textContent.toLowerCase()
+        };
+
+        // Hide the row if it doesn't match the filter criteria
+        if (Object.keys(filterValues).every(key => rowValues[key].includes(filterValues[key]))) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
         }
-        
-        function filterTable() {
-            const userIDFilter = filterUserID.value.toLowerCase();
-            const usernameFilter = filterUsername.value.toLowerCase();
-            const emailFilter = filterEmail.value.toLowerCase();
-            const phoneFilter = filterPhone.value.toLowerCase();
-            
-            // Loop through all table rows
-            tableRows.forEach(row => {
-                const userID = row.cells[0].textContent.toLowerCase();
-                const username = row.cells[1].textContent.toLowerCase();
-                const email = row.cells[4].textContent.toLowerCase();
-                const phone = row.cells[5].textContent.toLowerCase();
-                
-                // Hide the row if it doesn't match the filter criteria
-                if (userID.includes(userIDFilter) && 
-                    username.includes(usernameFilter) &&
-                    email.includes(emailFilter) &&
-                    phone.includes(phoneFilter)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-        
-        function clearFilters() {
-            filterUserID.value = '';
-            filterUsername.value = '';
-            filterEmail.value = '';
-            filterPhone.value = '';
-            
-            // Show all table rows
-            tableRows.forEach(row => {
-                row.style.display = '';
-            });
-        }
+    });
+}
+
+function clearFilters() {
+    filterUserID.value = '';
+    filterUsername.value = '';
+    filterEmail.value = '';
+    filterPhone.value = '';
+
+    // Show all table rows
+    tableRows.forEach(row => {
+        row.style.display = '';
+    });
+}
     </script>
 </body>
 </html>

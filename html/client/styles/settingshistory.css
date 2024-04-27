@@ -9,6 +9,11 @@ body {
     display: flex;
     height: 100vh;
 }
+.back-icon:hover {
+    color: #1e90ff; /* Change color on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
 
 .sidebar {
     width: 200px;
@@ -70,13 +75,16 @@ p {
     color: #555;
     line-height: 1.5;
 }
-/* settingshistory.css */
 
-/* Style the table */
+/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
+    margin-left: 20px; /* Adjust the left margin to move the table to the right */
+    margin-right: 20px; /* Add space from the right */
 }
+
 
 th {
     background-color: #254636;
