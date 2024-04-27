@@ -9,18 +9,13 @@ body {
 }
 
 .container {
-    margin: 20px auto; /* Center the container horizontally */
+    margin: 20px;
     position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  
 }
-
-h1 {
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 10px; 
-    border-radius: 5px; 
-}
-
 .back-icon {
     position: absolute;
     left: 20px; /* Adjust as needed */
@@ -33,9 +28,16 @@ h1 {
     color: blue; /* Change color on hover */
 }
 
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
 button.details-btn,
-#filterButton,
-#clearFilterButton {
+#filterButton {
     background-color: #045206;
     color: white;
     padding: 8px 16px;
@@ -43,46 +45,87 @@ button.details-btn,
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0.9, 0.9, 0.9, 0.9);
+    margin-bottom: 10px; 
     display: block; /* Ensure buttons take up full width */
     margin: 0 auto; /* Center buttons horizontally */
+    text-align: center; 
 }
 
 button.details-btn:hover {
     background-color: #08490b; /* Darker green on hover */
 }
-
-#filterButton:hover,
-#clearFilterButton:hover {
+select[name="status"] {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+#filterButton:hover{
     background-color: #033411;
 }
-
-.filter-container {
-    position: relative;
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    margin: 20px auto; /* Center the container horizontally and add margin */
+#filterCriteria {
+    display: none;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for filter criteria */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0.9, 0.9, 0.9, 0.9);
+    text-align: center; /* Center the content horizontally */
 }
+
+#filterCriteria label {
+    margin: 0 10px;
+}
+
+#filterCriteria input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Light gray background for inputs */
+    border-radius: 4px;
+}
+
+
+#clearFilterButton {
+    background-color: #c70000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block; /* Display as a block element */
+    margin: 0 auto; /* Center horizontally */
+    margin-top:10px;
+}
+
+#clearFilterButton:hover {
+    background-color: #960000;
+}
+
+
+
+
 
 .filter-options {   
     display: flex;    
     justify-content: center; 
     flex-wrap: wrap;    
-    margin-bottom: 5px;
+
 }  
-.filter-option {  
-    flex: 0 0 5%; /* Adjust width to fit two options in a row */
+/*.filter-option {  
+    flex: 0 0 5%; 
     margin-bottom: 10px;  
-    margin-right: 10%; /* Add spacing between options */ 
+    margin-right: 10%; 
 
 }
 
-/* Adjustments for smaller screens */
+
 @media (max-width: 768px) {
     .filter-option {
-        flex: 0 0 90%; /* Display options in one column on smaller screens */
-        margin-right: 0; /* Remove margin between options */
+        flex: 0 0 90%; 
+        margin-right: 0;  
     }
-}
+}*/
 
 /*.filter-dropdown {
     display: none;
@@ -103,46 +146,6 @@ button.details-btn:hover {
     overflow-y: auto;
 }
 */
-#filterCriteria {
-    display: none;
-    margin-top: 5px;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    border-radius: 100px;
-    box-shadow: 0 0 10px rgba(0.9, 0.9, 0.9, 0.9);
-}
-
-#filterCriteria label {
-    margin-right: 20px;
-}
-
-#filterCriteria input[type="text"] {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-#clearFilterButton {
-    background-color: #c70000;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    display: block; /* Display as a block element */
-    margin: 0 auto; /* Center horizontally */
-}
-
-#clearFilterButton:hover {
-    background-color: #960000;
-}
-
-/* Reduce the gap between table and dropdown */
-#userTable {  
-    margin-bottom: 10px; /* Adjust as needed */
-}
 
 table {
     margin-top: 20px; /* Adjusted margin */
@@ -167,4 +170,5 @@ table td {
 table th {
     background-color: #156319;
     color: #fff;
+    border-radius: 5px;
 }

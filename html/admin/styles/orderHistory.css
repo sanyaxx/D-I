@@ -13,6 +13,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  
 }
 .back-icon {
     position: absolute;
@@ -30,7 +31,8 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-button.details-btn {
+button.details-btn
+{
     background-color: #4CAF50;
     color: white;
     padding: 8px 16px;
@@ -50,7 +52,7 @@ button.details-btn:hover {
     color: white;
     padding: 10px 20px; 
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     transition: background-color 0.3s;
@@ -67,14 +69,76 @@ select[name="status"] {
     border: 1px solid #ccc;
     background-color: #fff;
 }
+#filterButton {
+    background-color: #0a530c; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0.9, 0.9, 0.9, 0.9);
+    margin-bottom: 10px; /* Add margin to separate from filter criteria */
+    display: block; 
+    margin: 0 auto; /* Center the button horizontally */
+    text-align: center; /* Center the text within the button */
+}
+
+#filterButton:hover {
+    background-color: #043b06; /* Darker green color on hover */
+}
+
+#filterCriteria {
+    display: none;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for filter criteria */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0.9, 0.9, 0.9, 0.9);
+    text-align: center; /* Center the content horizontally */
+}
+
+label {
+    margin: 0 10px; /* Add margin around labels */
+}
+
+input[type="text"],
+select {
+    padding: 8px;
+    margin: 0 10px; /* Add margin around inputs */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Light gray background for inputs */
+    border-radius: 4px;
+}
+
+#clearFilterButton {
+    background-color: #c70000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block; /* Display as a block element */
+    margin: 0 auto; /* Center horizontally */
+    margin-top:10px;
+}
+
+
+#clearFilterButton:hover {
+    background-color: #d32f2f; /* Darker red color on hover */
+}
+
+
 
 table {
-    margin-top: 20px;
-    width: 100%;
+    margin-top: 20px; /* Adjusted margin */
     border-collapse: collapse;
-    background-color: rgba(200, 200, 200, 0.7); 
+    width: calc(100% - 80px); /* Adjusted width to leave space on both sides */
     border-radius: 10px;
-    padding: 10px;
+    padding: 40px; /* Add padding on both left and right sides */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.6); /* Translucent white background */
 }
 
 table th,
@@ -82,6 +146,7 @@ table td {
     padding: 12px; /* Increased padding */
     border-bottom: 1px solid #ccc;
     text-align: center;
+    border-radius: 5px; /* Added border radius */
 }
 
 table th {
@@ -90,7 +155,4 @@ table th {
     border-radius: 5px;
 }
 
-table td {
-    background-color: #fff;
-    border-radius: 5px;
-}
+
