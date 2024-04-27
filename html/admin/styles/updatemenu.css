@@ -44,6 +44,10 @@ body {
     padding-bottom: 50px; 
     
 }
+.main-content h2 {
+    color: white; /* Change to white */
+}
+
 
 .header-icons {
     text-align: right;
