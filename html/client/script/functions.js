@@ -39,7 +39,7 @@ function updateCartCounter() {
       .then(totalQuantity => {
         // Update cart counter
         document.getElementById('cart-counter').textContent = totalQuantity;
-        location.reload();
+        location.reload;
       })
       .catch(error => console.error('Error updating cart counter:', error));
 }
