@@ -86,3 +86,48 @@ h2 {
 .profile-text button:hover {
     background-color: #073e13; /* Darker shade of green on hover */
 }
+.password-change {
+    margin-top: 30px;
+}
+
+.password-change h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.password-inputs input[type="password"] {
+    width: calc(100% - 22px); /* Adjust width minus padding and borders */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.password-inputs h3 {
+    color: #584e4e;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.update-button {
+    margin-top: 20px; /* Space between password change section and update button */
+}
+
+.update-button button {
+    background-color: #15792d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0.9, 0.9, 0.9, 0.9);
+}
+
+.update-button button:hover {
+    background-color: #073e13;
+}
+

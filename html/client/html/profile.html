@@ -27,6 +27,7 @@
                 <div class="profile-details">
                     <div class="profile-text">
                         <h2><center>Profile Information</center></h2>
+                        <!-- Profile Information Table -->
                         <table>
                             <tr>
                                 <td><strong>Name: </strong></td>
@@ -40,16 +41,29 @@
                                 <td><strong>Phone No (+60): </strong></td>
                                 <td><input type="tel" id="phone" value="<?= $profileRows[0]['phone'] ?>"></td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td><button onclick="updateProfile()">Update</button></td>
-                            </tr>
                         </table>
                     </div>
                 </div>
             </div>
+        
+            <!-- Password Change Section -->
+            <div class="password-change">
+                <h2>Password Change</h2>
+                <div class="password-inputs">
+                    <input type="password" id="new-password" placeholder="New Password">
+                    <input type="password" id="confirm-password" placeholder="Confirm New Password">
+                    <br> <!-- Adding a line break for space -->
+                    <h3><strong>To confirm, please enter the Current Password:</strong></h3>
+                    <input type="password" id="current-password" placeholder="Current Password">
+                </div>
+            </div>
+        
+            <!-- Update Button -->
+            <div class="update-button">
+                <button onclick="updateProfile()">Update</button>
+            </div>
         </div>
-    </div>
+        
 </body>
 </html>
 <script src="../script/editModal.js"></script>
