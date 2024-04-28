@@ -9,11 +9,6 @@ body {
     display: flex;
     height: 100vh;
 }
-.back-icon:hover {
-    color: #1e90ff; /* Change color on hover */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
 
 .sidebar {
     width: 200px;
@@ -40,16 +35,7 @@ body {
 
 .main-content {
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Hide overflow from children */
-}
-
-.history-info {
-    flex-grow: 1;
-    padding: 10px; /* Add padding on all sides */
-    margin: 0;
-    /* overflow-y: auto; */
+    padding: 20px;
 }
 
 .tab {
@@ -71,7 +57,7 @@ p {
 #tabContent {
     background-color: #fff;
     border-radius: 5px;
-    padding:10px;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,12 +71,11 @@ p {
     line-height: 1.5;
 }
 
+
+/* Style the table */
 table {
+    width: 100%;
     border-collapse: collapse;
-    margin-top: 0;
-    margin: 0 auto;
-    width: 100%; /* Ensure table fills the entire width of .history-info */
-    height: 100%;
 }
 
 th {
@@ -113,3 +98,7 @@ tr:hover {
     background-color: #ddd;
 }
 
+.history-info {
+    max-height: 400px;
+    overflow-y: auto;
+ }

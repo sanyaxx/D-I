@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/settingshistory.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
 </head>
 <body>
 
     <div class="container">
+
         <div class="header-icons">
             <span class="cart-counter" id="cart-counter" style="font-weight: bold;"></span>
-            <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()" style="color: black;"></i>
+            <i class="fas fa-shopping-cart" id="shopping-cart" onclick="goCart()"></i>
         </div>
-        
+
         <div class="sidebar">
             <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
             <div class="option" onclick="goProfile()">Profile</div>
@@ -26,42 +28,37 @@
             <!-- History content will be loaded here -->
             <div class="history-info">
                 <h2>Order History</h2>
-                <?php if (count($historyRows) === 0): ?>
-                    <p>No previous orders.</p>
-                <?php else: ?>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Items</th>
-                                <th>Total Price (RM)</th>
-                                <th>Payment</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Loop through previous orders and display each order -->
-                            <?php foreach ($historyRows as $historyRow): ?>
-                            <tr>
-                                <td><?php echo $historyRow['orderID']; ?></td>
-                                <td><?php echo $historyRow['itemNames']; ?></td>
-                                <td><?php echo $historyRow['total_price']; ?></td>
-                                <td><?php echo $historyRow['payment']; ?></td>
-                                <td><?php echo $historyRow['order_date']; ?></td>
-                                <td><?php echo $historyRow['status']; ?></td>
-                            </tr>
-                            <?php endforeach; ?>
-                            <!-- Repeat the above row structure for each previous order -->
-                        </tbody>
-                    </table>
-                <?php endif; ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Items</th>
+                            <th>Total Price (RM)</th>
+                            <th>Payment</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through previous orders and display each order -->
+                        <?php foreach ($historyRows as $historyRow): ?>
+                        <tr>
+                            <td><?php echo $historyRow['orderID']; ?></td>
+                            <td><?php echo $historyRow['itemNames']; ?></td>
+                            <td><?php echo $historyRow['total_price']; ?></td>
+                            <td><?php echo $historyRow['payment']; ?></td>
+                            <td><?php echo $historyRow['order_date']; ?></td>
+                            <td><?php echo $historyRow['status']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <!-- Repeat the above row structure for each previous order -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </body>
 </html>
-
 
 <script src="../script/editModal.js"></script>
 <script src="../script/functions.js"></script>
